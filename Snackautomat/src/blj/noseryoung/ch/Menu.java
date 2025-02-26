@@ -6,6 +6,8 @@ import blj.noseryoung.ch.Purse;
 
 import java.util.Scanner;
 
+import static java.lang.Character.isDigit;
+
 public class Menu {
     Scanner menu = new Scanner(System.in);
     Products products = new Products();
@@ -96,7 +98,7 @@ public class Menu {
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
-                    category = "all";
+                    category = "allValid";
                     break;
                 case "2":
                     category = "Snacks";
@@ -116,7 +118,7 @@ public class Menu {
                     System.out.println("Invalid Input\nTry Again");
                     break;
             }
-            products.compareCategory(category);
+            products.compareCategory(category, false);
         } while (!contin);
 
     }
@@ -172,12 +174,33 @@ public class Menu {
         } while (!contin);
     }
 
-    public void secretMenuChangePrice() {
+    public void secretMenuModifyPrice() {
 
+        products.compareCategory("all", true); //Printing all Products to choose
+        System.out.println("Wich Product do you want to Modify?\nPick a Product (exp: Coca Kola)");
+        String secretMenuChooseProduct = menu.nextLine();
+        if (isNumeric(secretMenuChooseProduct)) {
+            if (Integer.parseInt(secretMenuChooseProduct) >= 1 && Integer.parseInt(secretMenuChooseProduct) <= 20) {
+                //Notiz für morgen: Als nächstes mache ich einen Dialog um Name, Kategorie, Preis und num in stock zu verändern.
+
+            }
+        }
+        products.printProducts(1, true);
     }
 
     public void secretMenuChangeProduct() {
 
+    }
+
+
+    //Function from ChatGPT. Checks whether a string is a number or not
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
 
