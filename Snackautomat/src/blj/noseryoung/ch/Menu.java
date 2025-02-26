@@ -31,8 +31,6 @@ public class Menu {
                 "| $$ \\/  | $$|  $$$$$$$|  $$$$$$$| $$  | $$| $$| $$  | $$|  $$$$$$$\n" +
                 "|__/     |__/ \\_______/ \\_______/|__/  |__/|__/|__/  |__/ \\_______/\n" +
                 "                                                                   ");
-        System.out.println("Press Enter to Continue\n");
-        String pEnter = menu.nextLine();
         mainMenu();
     }
 
@@ -139,4 +137,5 @@ public class Menu {
                         "# above (01-20)           #\n" +
                         "###########################\n");
     }
+    
 }
