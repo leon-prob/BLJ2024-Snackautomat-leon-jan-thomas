@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c5daca4-c98d-4987-8a16-017cbc864944" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" afterDir="false" />
@@ -21,7 +22,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "feature-jan",
+    "Application.main.executor": "Run",
+    "git-widget-placeholder": "feature-leon",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -47,8 +49,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java</url>
-          <line>47</line>
-          <properties class="blj.noseryoung.ch.Products" method="compareCategory">
+          <line>52</line>
+          <properties class="blj.noseryoung.ch.Products">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

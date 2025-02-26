@@ -1,15 +1,15 @@
 package blj.noseryoung.ch;
-import blj.noseryoung.ch.Products;
-import blj.noseryoung.ch.Purse;
-
-
 
 import java.util.Scanner;
 
 public class Menu {
-    Scanner menu = new Scanner(System.in);
-    Products products = new Products();
-    Purse purse = new Purse();
+    private Scanner menu = new Scanner(System.in);
+    private Products products;
+    private Purse purse = new Purse(); // Purse starts with 100 CHF.
+
+    public Menu(Products products) {
+        this.products = products;
+    }
 
     public void introScreen() {
         System.out.println("Welcome to THE\n" +
@@ -36,48 +36,39 @@ public class Menu {
         mainMenu();
     }
 
-
     public void mainMenu() {
-        boolean contin = true;
-        System.out.println(
-                "###########################");
-        System.out.println("# What do you wish to do? #\n" +
-                "###########################\n" +
-                "# Show Purse           1  #\n" +
-                "# Show all Products    2  #\n" +
-                "# Buy a Product        3  #\n" +
-                "# Exit                 4  #\n" +
-                "###########################\n");
+        while (true) {
+            System.out.println("###########################");
+            System.out.println("# What do you wish to do? #");
+            System.out.println("###########################");
+            System.out.println("# Show Purse           1  #");
+            System.out.println("# Show all Products    2  #");
+            System.out.println("# Buy a Product        3  #");
+            System.out.println("# Exit                 4  #");
+            System.out.println("###########################");
+            System.out.print("Enter a number (1-4): ");
 
-        do {
-            contin = true;
-            System.out.println("Enter a number (1-4):");
-            String mainMenu = menu.nextLine();
-            switch (mainMenu) {
+            String choice = menu.nextLine();
+            switch (choice) {
                 case "1":
                     showPurse();
                     break;
                 case "2":
-                    showProductsMenu(); //Show all Products function
+                    showProductsMenu();
                     break;
                 case "3":
-                    initBuyProduct(); //Show buying Menu
+                    initBuyProduct();
                     break;
                 case "4":
-                    //Exit function
-                    break;
-                case "sm":
-                    //secretMenu();
-                    break;
+                    System.out.println("Exiting...");
+                    return;
                 default:
-                    contin = false;
-                    System.out.println("Invalid Input\nTry Again");
-                    break;
+                    System.out.println("Invalid Input. Try Again.");
             }
-        } while (!contin);
+        }
     }
 
-    public void showProductsMenu() { //printing menu for Product category
+    public void showProductsMenu() {
         boolean contin;
         String category = "0";
         System.out.println(
@@ -93,7 +84,7 @@ public class Menu {
                         "###########################\n");
         do {
             contin = false;
-            System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
+            System.out.print("Enter a number (1-4)\nReturn to main Menu (5): ");
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
@@ -113,13 +104,12 @@ public class Menu {
                     mainMenu();
                     break;
                 default:
-                    contin = false;
                     System.out.println("Invalid Input\nTry Again");
-                    break;
             }
-            products.compareCategory(category);
+            if (!category.equals("0")) {
+                products.compareCategory(category);
+            }
         } while (!contin);
-
     }
 
     private void initBuyProduct() {
@@ -138,23 +128,73 @@ public class Menu {
                         "###########################\n" +
                         "# Choose a number from    #\n" +
                         "# above (01-20)           #\n" +
-                        "###########################\n");
+                        "###########################\n"
+        );
+
+        while (true) {
+            System.out.print("Enter product number (1-20) or 'x' to return to Main Menu: ");
+            String input = menu.nextLine();
+
+            if (input.equalsIgnoreCase("x")) {
+                mainMenu();
+                return;
+            }
+
+            try {
+                int productIndex = Integer.parseInt(input);
+
+                if (productIndex < 1 || productIndex > 20) {
+                    System.out.println("Please enter a valid number between 1 and 20.");
+                    continue;
+                }
+
+                Products selectedProduct = products.getProduct(productIndex - 1);
+
+                if (selectedProduct == null) {
+                    System.out.println("No product found at that slot. Try again.");
+                    continue;
+                }
+
+                if (selectedProduct.getCategory().equals("Not Available")
+                        || selectedProduct.getNumInStock() <= 0) {
+                    System.out.println("Sorry, that product is not available or out of stock.");
+                    continue;
+                }
+
+                if (purse.getBalance() < selectedProduct.getPrice()) {
+                    System.out.println("You do not have enough money. Please refill your purse (max 100 CHF) or choose another product.");
+                    continue;
+                }
+
+                purse.setBalance(purse.getBalance() - selectedProduct.getPrice());
+                selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
+
+                System.out.println("You bought " + selectedProduct.getName() + " for "
+                        + selectedProduct.getPrice() + " CHF!");
+                System.out.println("Your new balance is: " + purse.getBalance() + " CHF");
+
+                mainMenu();
+                return;
+
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, please try again.");
+            }
+        }
     }
 
     public void showPurse() {
         boolean contin;
-        Scanner scanner = new Scanner(System.in);
         System.out.println("###########################");
-        System.out.printf("# Balance          %6d #\n", purse.getBalance());
+        System.out.printf("# Balance: %6d CHF    #\n", purse.getBalance());
         System.out.println("###########################");
         System.out.println("# Refill Purse        1  #");
         System.out.println("# Exit                2  #");
         System.out.println("###########################");
         do {
             contin = true;
-            System.out.print("Choose a Option (1-2): ");
+            System.out.print("Choose an Option (1-2): ");
 
-            String inputPurse = scanner.nextLine();
+            String inputPurse = menu.nextLine();
 
             switch (inputPurse) {
                 case "1":
@@ -173,4 +213,3 @@ public class Menu {
         } while (!contin);
     }
 }
-

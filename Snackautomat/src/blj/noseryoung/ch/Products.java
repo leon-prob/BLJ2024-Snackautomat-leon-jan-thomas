@@ -2,7 +2,6 @@ package blj.noseryoung.ch;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Products {
     private String name;
@@ -12,8 +11,17 @@ public class Products {
 
     private List<Products> productList = new ArrayList<>();
 
+    // Default constructor.
     public Products() {
-        initProducts();
+        // Ini via initProducts().
+    }
+
+    // Constructor for a single product.
+    public Products(String name, String category, int price, int numInStock) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.numInStock = numInStock;
     }
 
     void initProducts() {
@@ -38,40 +46,36 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
-    // constructor for teh Products
-    public Products(String name, String category, int price, int numInStock) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.numInStock = numInStock;
-    }
-    void compareCategory(String category) {
 
+    void compareCategory(String category) {
         System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
+
         if (category.equals("all")) {
             for (int i = 0; i < productList.size(); i++) {
-                if (getProduct(i).getCategory().equals("Not Available")) {
-                    //nothing is printed
-                } else {
+                if (!productList.get(i).getCategory().equals("Not Available")) {
                     printProducts(i);
                 }
             }
         } else {
             for (int i = 0; i < productList.size(); i++) {
-                if (getProduct(i).getCategory().equals(category)) {
+                if (productList.get(i).getCategory().equals(category)) {
                     printProducts(i);
                 }
             }
         }
     }
 
-    void printProducts(int product) {
-            System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
-            System.out.println("+-------------------+-------------------------------------+-------+----------+");
+    void printProducts(int productIndex) {
+        Products p = productList.get(productIndex);
+        System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n",
+                p.getName(),
+                p.getCategory(),
+                p.getPrice(),
+                p.getNumInStock());
+        System.out.println("+-------------------+-------------------------------------+-------+----------+");
     }
 
-    // returns Product
     public Products getProduct(int index) {
         if (index >= 0 && index < productList.size()) {
             return productList.get(index);
@@ -80,21 +84,21 @@ public class Products {
         }
     }
 
-
-    // Getter-Methode
+    // Getters
     public String getName() {
         return name;
     }
-
     public String getCategory() {
         return category;
     }
-
     public int getPrice() {
         return price;
     }
-
     public int getNumInStock() {
         return numInStock;
+    }
+
+    public void setNumInStock(int numInStock) {
+        this.numInStock = numInStock;
     }
 }
