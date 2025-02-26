@@ -66,7 +66,7 @@ public class Menu {
                     //Exit function
                     break;
                 case "sm":
-                    secretMenu();
+                    //secretMenu();
                     break;
                 default:
                     contin = false;
