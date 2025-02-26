@@ -40,8 +40,8 @@ public class Menu {
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
-                "###########################\n" +
-                        "# What do you wish to do? #\n" +
+                        "###########################");
+        System.out.println("# What do you wish to do? #\n" +
                         "###########################\n" +
                         "# Show Purse           1  #\n" +
                         "# Show all Products    2  #\n" +
@@ -64,6 +64,9 @@ public class Menu {
                     break;
                 case "4":
                     //Exit function
+                    break;
+                case "sm":
+                    secretMenu();
                     break;
                 default:
                     contin = false;
@@ -118,7 +121,7 @@ public class Menu {
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
         products.compareCategory(category);
     }
-
+    
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
@@ -137,5 +140,5 @@ public class Menu {
                         "# above (01-20)           #\n" +
                         "###########################\n");
     }
-    
+
 }
