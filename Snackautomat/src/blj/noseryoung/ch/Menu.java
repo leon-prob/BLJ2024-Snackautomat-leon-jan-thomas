@@ -121,7 +121,7 @@ public class Menu {
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
         products.compareCategory(category);
     }
-    
+
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
