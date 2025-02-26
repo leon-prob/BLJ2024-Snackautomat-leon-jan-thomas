@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5daca4-c98d-4987-8a16-017cbc864944" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" afterDir="false" />
-    </list>
+    <list default="true" id="5c5daca4-c98d-4987-8a16-017cbc864944" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +16,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "feature-jan",
+    "git-widget-placeholder": "develop",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
