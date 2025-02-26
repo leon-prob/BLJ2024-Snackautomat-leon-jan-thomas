@@ -13,7 +13,7 @@ public class Products {
     private List<Products> productList = new ArrayList<>();
 
     public Products() {
-        initProducts();  // Initialisiere alle Produkte in der Liste
+        initProducts();
     }
 
     void initProducts() {
@@ -38,7 +38,7 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
-    // Konstruktor für einzelne Produkte
+    // constructor for teh Products
     public Products(String name, String category, int price, int numInStock) {
         this.name = name;
         this.category = category;
@@ -60,17 +60,17 @@ public class Products {
 
 
 
-    // Gibt ein Produkt basierend auf dem Index zurück
+    // returns Product
     public Products getProduct(int index) {
         if (index >= 0 && index < productList.size()) {
             return productList.get(index);
         } else {
-            return null; // Falls ungültiger Index eingegeben wird
+            return null;
         }
     }
 
 
-    // Getter-Methoden
+    // Getter-Methode
     public String getName() {
         return name;
     }
