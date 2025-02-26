@@ -40,8 +40,7 @@ public class Menu {
 
 
     public void mainMenu() {
-
-
+        boolean contin = true;
         System.out.println(
                 "###########################\n" +
                         "# What do you wish to do? #\n" +
@@ -51,27 +50,32 @@ public class Menu {
                         "# Buy a Product        3  #\n" +
                         "# Exit                 4  #\n" +
                         "###########################\n");
-        System.out.println("Enter a number (1-4):");
-        String mainMenu = menu.nextLine();
-        switch (mainMenu) {
-            case "1":
-                break;
-            //Show Purse function
-            case "2":
-                showProductsMenu(); //Show all Products function
-                break;
-            case "3":
-                initBuyProduct(); //Show buying Menu
-                break;
-            case "4":
-                //Exit function
-                break;
-            default:
-                //Input not Valid function
-                break;
-        }
+        do {
+            contin = true;
+            System.out.println("Enter a number (1-4):");
+            String mainMenu = menu.nextLine();
+            switch (mainMenu) {
+                case "1":
+                    break;
+                //Show Purse function
+                case "2":
+                    showProductsMenu(); //Show all Products function
+                    break;
+                case "3":
+                    initBuyProduct(); //Show buying Menu
+                    break;
+                case "4":
+                    //Exit function
+                    break;
+                default:
+                    contin = false;
+                    System.out.println("Invalid Input\nTry Again");
+                    break;
+            }
+        } while (!contin);
     }
     public void showProductsMenu() { //printing menu for Product category
+        boolean contin;
         String category = "0";
         System.out.println(
                 "###########################\n" +
@@ -85,28 +89,33 @@ public class Menu {
                         "###########################\n" +
                         "# Main Menu          back #\n " +
                         "###########################\n");
-        System.out.println("Enter a number (1-4 or back):");
-        String productCategory = menu.nextLine();
-        switch (productCategory) {
-            case "1":
-                category = "all";
-                break;
-            case "2":
-                category = "Snacks";
-                break;
-            case "3":
-                category = "Beverage";
-                break;
-            case "4":
-                category = "others";
-                break;
-            case "back":
-                mainMenu();
-                break;
-            default:
-                System.out.println("Thats not an option");
-                break;
-        }
+        do {
+            contin = true;
+            System.out.println("Enter a number (1-4 or back):");
+            String productCategory = menu.nextLine();
+            switch (productCategory) {
+                case "1":
+                    category = "all";
+                    break;
+                case "2":
+                    category = "Snacks";
+                    break;
+                case "3":
+                    category = "Beverage";
+                    break;
+                case "4":
+                    category = "others";
+                    break;
+                case "back":
+                    mainMenu();
+                    break;
+                default:
+                    contin = false;
+                    System.out.println("Invalid Input\nTry Again");
+                    break;
+            }
+        } while (!contin);
+
         System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
         products.compareCategory(category);
