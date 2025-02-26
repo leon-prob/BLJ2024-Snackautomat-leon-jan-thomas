@@ -40,23 +40,23 @@ public class Menu {
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
-                        "###########################");
+                "###########################");
         System.out.println("# What do you wish to do? #\n" +
-                        "###########################\n" +
-                        "# Show Purse           1  #\n" +
-                        "# Show all Products    2  #\n" +
-                        "# Buy a Product        3  #\n" +
-                        "# Exit                 4  #\n" +
-                        "###########################\n");
-       
+                "###########################\n" +
+                "# Show Purse           1  #\n" +
+                "# Show all Products    2  #\n" +
+                "# Buy a Product        3  #\n" +
+                "# Exit                 4  #\n" +
+                "###########################\n");
+
         do {
             contin = true;
             System.out.println("Enter a number (1-4):");
             String mainMenu = menu.nextLine();
             switch (mainMenu) {
                 case "1":
+                    showPurse();
                     break;
-                //Show Purse function
                 case "2":
                     showProductsMenu(); //Show all Products function
                     break;
@@ -67,7 +67,7 @@ public class Menu {
                     //Exit function
                     break;
                 case "sm":
-                    secretMenu();
+                    //secretMenu();
                     break;
                 default:
                     contin = false;
@@ -82,7 +82,7 @@ public class Menu {
         String category = "0";
         System.out.println(
                 "###########################\n" +
-                        "# What Product Category   #\n " +
+                        "# What Product Category   #\n" +
                         "# do you want to see?     #\n" +
                         "###########################\n" +
                         "# All Products         1  #\n" +
@@ -92,8 +92,8 @@ public class Menu {
                         "# Main Menu            5  #\n" +
                         "###########################\n");
         do {
-            contin = true;
-            System.out.println("Enter a number (1-4 or back):");
+            contin = false;
+            System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
@@ -108,7 +108,8 @@ public class Menu {
                 case "4":
                     category = "others";
                     break;
-                case "back":
+                case "5":
+                    contin = true;
                     mainMenu();
                     break;
                 default:
@@ -116,13 +117,11 @@ public class Menu {
                     System.out.println("Invalid Input\nTry Again");
                     break;
             }
+            products.compareCategory(category);
         } while (!contin);
 
-        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
-        products.compareCategory(category);
     }
-    
+
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
@@ -143,6 +142,7 @@ public class Menu {
     }
 
     public void showPurse() {
+        boolean contin;
         Scanner scanner = new Scanner(System.in);
         System.out.println("###########################");
         System.out.printf("# Balance          %6d #\n", purse.getBalance());
@@ -150,22 +150,27 @@ public class Menu {
         System.out.println("# Refill Purse        1  #");
         System.out.println("# Exit                2  #");
         System.out.println("###########################");
-        System.out.print("Choose a Option (1-2): ");
+        do {
+            contin = true;
+            System.out.print("Choose a Option (1-2): ");
 
-        String inputPurse = scanner.nextLine();
+            String inputPurse = scanner.nextLine();
 
-        switch (inputPurse) {
-            case "1":
-                purse.refillPurse();
-                break;
-            case "2":
-                System.out.println("Back to the Main Menu...");
-                mainMenu();
-                break;
-            default:
-                System.out.println("Invalid Input! Try Again.");
-                break;
-        }
+            switch (inputPurse) {
+                case "1":
+                    purse.refillPurse();
+                    contin = false;
+                    break;
+                case "2":
+                    System.out.println("Back to the Main Menu...");
+                    mainMenu();
+                    break;
+                default:
+                    contin = false;
+                    System.out.println("Invalid Input!\nTry Again.");
+                    break;
+            }
+        } while (!contin);
     }
 }
 
