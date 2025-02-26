@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e3f83a-6710-4815-b02a-a9beba5bc9f0" name="Changes" comment="">
+
       <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" afterDir="false" />
     </list>
+
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +50,8 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature-jan",
+    "git-widget-placeholder": "feature-leon",
+
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Work/Games/BLJ2024-Snackautomat-leon-jan-thomas/Snackautomat",
@@ -57,8 +61,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Work\Games\BLJ2024-Snackautomat-leon-jan-thomas\Snackautomat\src\blj\noseryoung\ch" />

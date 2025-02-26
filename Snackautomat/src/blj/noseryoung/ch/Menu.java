@@ -1,5 +1,6 @@
 package blj.noseryoung.ch;
 import blj.noseryoung.ch.Products;
+import blj.noseryoung.ch.Purse;
 
 
 
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class Menu {
     Scanner menu = new Scanner(System.in);
     Products products = new Products();
+    Purse purse = new Purse();
 
     public void introScreen() {
         System.out.println("Welcome to THE\n" +
@@ -35,8 +37,6 @@ public class Menu {
     }
 
 
-
-
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
@@ -48,6 +48,7 @@ public class Menu {
                         "# Buy a Product        3  #\n" +
                         "# Exit                 4  #\n" +
                         "###########################\n");
+       
         do {
             contin = true;
             System.out.println("Enter a number (1-4):");
@@ -66,7 +67,7 @@ public class Menu {
                     //Exit function
                     break;
                 case "sm":
-                    secretMenu();
+                    //secretMenu();
                     break;
                 default:
                     contin = false;
@@ -75,6 +76,7 @@ public class Menu {
             }
         } while (!contin);
     }
+
     public void showProductsMenu() { //printing menu for Product category
         boolean contin;
         String category = "0";
@@ -87,8 +89,7 @@ public class Menu {
                         "# Snacks               2  #\n" +
                         "# Beverage             3  #\n" +
                         "# others               4  #\n" +
-                        "###########################\n" +
-                        "# Main Menu          back #\n " +
+                        "# Main Menu            5  #\n" +
                         "###########################\n");
         do {
             contin = true;
@@ -121,7 +122,7 @@ public class Menu {
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
         products.compareCategory(category);
     }
-    
+
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
@@ -141,4 +142,30 @@ public class Menu {
                         "###########################\n");
     }
 
+    public void showPurse() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("###########################");
+        System.out.printf("# Balance          %6d #\n", purse.getBalance());
+        System.out.println("###########################");
+        System.out.println("# Refill Purse        1  #");
+        System.out.println("# Exit                2  #");
+        System.out.println("###########################");
+        System.out.print("Choose a Option (1-2): ");
+
+        String inputPurse = scanner.nextLine();
+
+        switch (inputPurse) {
+            case "1":
+                purse.refillPurse();
+                break;
+            case "2":
+                System.out.println("Back to the Main Menu...");
+                mainMenu();
+                break;
+            default:
+                System.out.println("Invalid Input! Try Again.");
+                break;
+        }
+    }
 }
+
