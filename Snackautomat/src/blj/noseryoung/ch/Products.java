@@ -1,4 +1,5 @@
 package blj.noseryoung.ch;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +45,23 @@ public class Products {
         this.price = price;
         this.numInStock = numInStock;
     }
+    void compareCategory(String category) {
+        for (int i = 0; i < productList.size(); i++) {
+            if (getProduct(i).getCategory().equals(category)) {
+                printProducts(i);
+            }
+        }
+    }
+
+    void printProducts(int product) {
+
+        System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+
+        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+    }
+
+
+
     // Gibt ein Produkt basierend auf dem Index zurück
     public Products getProduct(int index) {
         if (index >= 0 && index < productList.size()) {
