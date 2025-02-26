@@ -13,7 +13,7 @@ public class Products {
     private List<Products> productList = new ArrayList<>();
 
     public Products() {
-        initProducts();  // Initialisiere alle Produkte in der Liste
+        initProducts();
     }
 
     void initProducts() {
@@ -38,7 +38,7 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
-    // Konstruktor für einzelne Produkte
+    // constructor for teh Products
     public Products(String name, String category, int price, int numInStock) {
         this.name = name;
         this.category = category;
@@ -46,33 +46,42 @@ public class Products {
         this.numInStock = numInStock;
     }
     void compareCategory(String category) {
-        for (int i = 0; i < productList.size(); i++) {
-            if (getProduct(i).getCategory().equals(category)) {
-                printProducts(i);
+
+        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
+        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        if (category.equals("all")) {
+            for (int i = 0; i < productList.size(); i++) {
+                if (getProduct(i).getCategory().equals("Not Available")) {
+                    //nothing is printed
+                } else {
+                    printProducts(i);
+                }
+            }
+        } else {
+            for (int i = 0; i < productList.size(); i++) {
+                if (getProduct(i).getCategory().equals(category)) {
+                    printProducts(i);
+                }
             }
         }
     }
 
     void printProducts(int product) {
-
-        System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
-
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+            System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+            System.out.println("+-------------------+-------------------------------------+-------+----------+");
     }
 
-
-
-    // Gibt ein Produkt basierend auf dem Index zurück
+    // returns Product
     public Products getProduct(int index) {
         if (index >= 0 && index < productList.size()) {
             return productList.get(index);
         } else {
-            return null; // Falls ungültiger Index eingegeben wird
+            return null;
         }
     }
 
 
-    // Getter-Methoden
+    // Getter-Methode
     public String getName() {
         return name;
     }
