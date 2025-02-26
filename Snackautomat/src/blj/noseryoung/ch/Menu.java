@@ -36,7 +36,6 @@ public class Menu {
         mainMenu();
     }
 
-
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
@@ -172,5 +171,14 @@ public class Menu {
             }
         } while (!contin);
     }
+
+    public void secretMenuChangePrice() {
+
+    }
+
+    public void secretMenuChangeProduct() {
+
+    }
 }
+
 
