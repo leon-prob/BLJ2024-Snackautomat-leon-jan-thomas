@@ -1,15 +1,14 @@
 package blj.noseryoung.ch;
+
 import blj.noseryoung.ch.Products;
 import blj.noseryoung.ch.Purse;
-
-
-
 import java.util.Scanner;
 
 public class Menu {
     Scanner menu = new Scanner(System.in);
     Products products = new Products();
     Purse purse = new Purse();
+    secretKey sk = new secretKey();
 
     public void introScreen() {
         System.out.println("Welcome to THE\n" +
@@ -40,8 +39,8 @@ public class Menu {
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
-                "###########################");
-        System.out.println("# What do you wish to do? #\n" +
+                "###########################\n" +
+                "# What do you wish to do? #\n" +
                 "###########################\n" +
                 "# Show Purse           1  #\n" +
                 "# Show all Products    2  #\n" +
@@ -67,7 +66,7 @@ public class Menu {
                     //Exit function
                     break;
                 case "sm":
-                    //secretMenu();
+                    sk.handleSecretKey("sm");
                     break;
                 default:
                     contin = false;
@@ -82,15 +81,15 @@ public class Menu {
         String category = "0";
         System.out.println(
                 "###########################\n" +
-                        "# What Product Category   #\n" +
-                        "# do you want to see?     #\n" +
-                        "###########################\n" +
-                        "# All Products         1  #\n" +
-                        "# Snacks               2  #\n" +
-                        "# Beverage             3  #\n" +
-                        "# others               4  #\n" +
-                        "# Main Menu            5  #\n" +
-                        "###########################\n");
+                "# What Product Category   #\n" +
+                "# do you want to see?     #\n" +
+                "###########################\n" +
+                "# All Products         1  #\n" +
+                "# Snacks               2  #\n" +
+                "# Beverage             3  #\n" +
+                "# others               4  #\n" +
+                "# Main Menu            5  #\n" +
+                "###########################\n");
         do {
             contin = false;
             System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
@@ -125,20 +124,20 @@ public class Menu {
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
-                        "# _______________________ #\n" +
-                        "# | [01] [02] [03] [04] | #\n" +
-                        "# | [05] [06] [07] [08] | #\n" +
-                        "# | [09] [10] [11] [12] | #\n" +
-                        "# | [13] [14] [15] [16] | #\n" +
-                        "# | [17] [18] [19] [20] | #\n" +
-                        "# |_____________________| #\n" +
-                        "#                         #\n" +
-                        "#       [======]          #\n" +
-                        "#       [______]          #\n" +
-                        "###########################\n" +
-                        "# Choose a number from    #\n" +
-                        "# above (01-20)           #\n" +
-                        "###########################\n");
+                "# _______________________ #\n" +
+                "# | [01] [02] [03] [04] | #\n" +
+                "# | [05] [06] [07] [08] | #\n" +
+                "# | [09] [10] [11] [12] | #\n" +
+                "# | [13] [14] [15] [16] | #\n" +
+                "# | [17] [18] [19] [20] | #\n" +
+                "# |_____________________| #\n" +
+                "#                         #\n" +
+                "#       [======]          #\n" +
+                "#       [______]          #\n" +
+                "###########################\n" +
+                "# Choose a number from    #\n" +
+                "# above (01-20)           #\n" +
+                "###########################\n");
     }
 
     public void showPurse() {

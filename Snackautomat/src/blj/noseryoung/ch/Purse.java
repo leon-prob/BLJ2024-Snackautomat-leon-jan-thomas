@@ -1,10 +1,9 @@
 package blj.noseryoung.ch;
 
-import java.util.Scanner;
-
 public class Purse {
     private int balance;
     private final int MAX_BALANCE = 100;
+
     public Purse() {
         balance = MAX_BALANCE;
     }

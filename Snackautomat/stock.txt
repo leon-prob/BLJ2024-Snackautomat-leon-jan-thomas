@@ -1,0 +1,40 @@
+Coca Kola,Beverage,2,10
+Fanto,Beverage,2,10
+Spirite,Beverage,2,10
+RedGull,Beverage,3,8
+Water,Beverage,1,15
+Coffee,Beverage,2,12
+Sandwich,Snacks,5,6
+N&N,Snacks,3,10
+Nickers,Snacks,2,10
+Meltesers,Snacks,2,10
+Tringels,Snacks,3,8
+Haribu,Snacks,2,10
+Lighter,others,4,5
+Condoms,others,6,5
+Pregnancy Test,others,10,3
+Product 16,Not Available,0,0
+Product 17,Not Available,0,0
+Product 18,Not Available,0,0
+Product 19,Not Available,0,0
+Product 20,Not Available,0,0
+Coca Kola,Beverage,2,10
+Fanto,Beverage,2,10
+Spirite,Beverage,2,10
+RedGull,Beverage,3,8
+Water,Beverage,1,15
+Coffee,Beverage,2,12
+Sandwich,Snacks,5,6
+N&N,Snacks,3,10
+Nickers,Snacks,2,10
+Meltesers,Snacks,2,10
+Tringels,Snacks,3,8
+Haribu,Snacks,2,10
+Lighter,others,4,5
+Condoms,others,6,5
+Pregnancy Test,others,10,3
+Product 16,Not Available,0,0
+Product 17,Not Available,0,0
+Product 18,Not Available,0,0
+Product 19,Not Available,0,0
+Product 20,Not Available,0,0
