@@ -1,11 +1,15 @@
 package blj.noseryoung.ch;
+import blj.noseryoung.ch.Products;
+
 
 
 import java.util.Scanner;
 
 public class Menu {
-    public void mainMenu() {
-        Scanner main = new Scanner(System.in);
+    Scanner menu = new Scanner(System.in);
+    Products products = new Products();
+
+    public void introScreen() {
         System.out.println("Welcome to THE\n" +
                 " /$$    /$$                          /$$ /$$                       \n" +
                 "| $$   | $$                         | $$|__/                       \n" +
@@ -27,11 +31,15 @@ public class Menu {
                 "| $$ \\/  | $$|  $$$$$$$|  $$$$$$$| $$  | $$| $$| $$  | $$|  $$$$$$$\n" +
                 "|__/     |__/ \\_______/ \\_______/|__/  |__/|__/|__/  |__/ \\_______/\n" +
                 "                                                                   ");
-                System.out.print("Press Enter to Continue");
-                main.nextLine();
+        System.out.println("Press Enter to Continue\n");
+        String pEnter = menu.nextLine();
+        mainMenu();
+    }
 
 
 
+
+    public void mainMenu() {
 
 
         System.out.println(
@@ -44,16 +52,16 @@ public class Menu {
                         "# Exit                 4  #\n" +
                         "###########################\n");
         System.out.println("Enter a number (1-4):");
-        String mainMenu = main.nextLine();
+        String mainMenu = menu.nextLine();
         switch (mainMenu) {
             case "1":
                 break;
             //Show Purse function
             case "2":
-                //Show all Products function
+                showProductsMenu(); //Show all Products function
                 break;
             case "3":
-                initBuyProduct();
+                initBuyProduct(); //Show buying Menu
                 break;
             case "4":
                 //Exit function
@@ -63,6 +71,47 @@ public class Menu {
                 break;
         }
     }
+    public void showProductsMenu() { //printing menu for Product category
+        String category = "0";
+        System.out.println(
+                "###########################\n" +
+                        "# What Product Category   #\n " +
+                        "# do you want to see?     #\n" +
+                        "###########################\n" +
+                        "# All Products         1  #\n" +
+                        "# Snacks               2  #\n" +
+                        "# Beverage             3  #\n" +
+                        "# others               4  #\n" +
+                        "###########################\n" +
+                        "# Main Menu          back #\n " +
+                        "###########################\n");
+        System.out.println("Enter a number (1-4 or back):");
+        String productCategory = menu.nextLine();
+        switch (productCategory) {
+            case "1":
+                category = "all";
+                break;
+            case "2":
+                category = "Snacks";
+                break;
+            case "3":
+                category = "Beverage";
+                break;
+            case "4":
+                category = "others";
+                break;
+            case "back":
+                mainMenu();
+                break;
+            default:
+                System.out.println("Thats not an option");
+                break;
+        }
+        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
+        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        products.compareCategory(category);
+    }
+
     private void initBuyProduct() {
         System.out.println(
                 "###########################\n" +
@@ -82,5 +131,3 @@ public class Menu {
                         "###########################\n");
     }
 }
-
-

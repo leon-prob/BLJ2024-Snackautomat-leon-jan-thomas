@@ -10,8 +10,7 @@ public class Main {
         Products products = new Products();
 
         products.initProducts();
-        menu.mainMenu();
+        menu.introScreen();
 
     }
 }
-
