@@ -1,5 +1,6 @@
 package blj.noseryoung.ch;
 import blj.noseryoung.ch.Products;
+import blj.noseryoung.ch.Purse;
 
 
 
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class Menu {
     Scanner menu = new Scanner(System.in);
     Products products = new Products();
+    Purse purse = new Purse();
 
     public void introScreen() {
         System.out.println("Welcome to THE\n" +
@@ -37,8 +39,6 @@ public class Menu {
     }
 
 
-
-
     public void mainMenu() {
 
 
@@ -55,6 +55,7 @@ public class Menu {
         String mainMenu = menu.nextLine();
         switch (mainMenu) {
             case "1":
+                showPurse();
                 break;
             //Show Purse function
             case "2":
@@ -71,6 +72,7 @@ public class Menu {
                 break;
         }
     }
+
     public void showProductsMenu() { //printing menu for Product category
         String category = "0";
         System.out.println(
@@ -82,10 +84,9 @@ public class Menu {
                         "# Snacks               2  #\n" +
                         "# Beverage             3  #\n" +
                         "# others               4  #\n" +
-                        "###########################\n" +
-                        "# Main Menu          back #\n " +
+                        "# Main Menu            5  #\n" +
                         "###########################\n");
-        System.out.println("Enter a number (1-4 or back):");
+        System.out.println("Enter a number (1-5):");
         String productCategory = menu.nextLine();
         switch (productCategory) {
             case "1":
@@ -100,7 +101,7 @@ public class Menu {
             case "4":
                 category = "others";
                 break;
-            case "back":
+            case "5":
                 mainMenu();
                 break;
             default:
@@ -129,5 +130,31 @@ public class Menu {
                         "# Choose a number from    #\n" +
                         "# above (01-20)           #\n" +
                         "###########################\n");
+    }
+
+    public void showPurse() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("###########################");
+        System.out.printf("# Balance          %6d #\n", purse.getBalance());
+        System.out.println("###########################");
+        System.out.println("# Refill Purse        1  #");
+        System.out.println("# Exit                2  #");
+        System.out.println("###########################");
+        System.out.print("Choose a Option (1-2): ");
+
+        String inputPurse = scanner.nextLine();
+
+        switch (inputPurse) {
+            case "1":
+                purse.refillPurse();
+                break;
+            case "2":
+                System.out.println("Back to the Main Menu...");
+                mainMenu();
+                break;
+            default:
+                System.out.println("Invalid Input! Try Again.");
+                break;
+        }
     }
 }
