@@ -11,6 +11,5 @@ public class Main {
 
         products.initProducts();
         menu.introScreen();
-
     }
 }
