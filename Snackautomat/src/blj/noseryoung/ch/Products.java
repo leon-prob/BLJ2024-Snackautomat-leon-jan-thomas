@@ -46,19 +46,30 @@ public class Products {
         this.numInStock = numInStock;
     }
     void compareCategory(String category) {
-        for (int i = 0; i < productList.size(); i++) {
-            if (getProduct(i).getCategory().equals(category)) {
-                printProducts(i);
+
+        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
+        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        if (category.equals("all")) {
+            for (int i = 0; i < productList.size(); i++) {
+                if (getProduct(i).getCategory().equals("Not Available")) {
+                    //nothing is printed
+                } else {
+                    printProducts(i);
+                }
+            }
+        } else {
+            for (int i = 0; i < productList.size(); i++) {
+                if (getProduct(i).getCategory().equals(category)) {
+                    printProducts(i);
+                }
             }
         }
     }
 
     void printProducts(int product) {
-        System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+            System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+            System.out.println("+-------------------+-------------------------------------+-------+----------+");
     }
-
-
 
     // returns Product
     public Products getProduct(int index) {
