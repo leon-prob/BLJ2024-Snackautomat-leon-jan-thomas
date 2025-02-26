@@ -54,9 +54,7 @@ public class Products {
     }
 
     void printProducts(int product) {
-
         System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
-
         System.out.println("+-------------------+-------------------------------------+-------+----------+");
     }
 
