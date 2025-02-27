@@ -2,6 +2,7 @@ package ch.noseryoung.blj;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Products {
     private String name;
@@ -37,37 +38,50 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
-    // constructor for teh ch.noseryoung.blj.Products
+    // constructor for teh Products
     public Products(String name, String category, int price, int numInStock) {
         this.name = name;
         this.category = category;
         this.price = price;
         this.numInStock = numInStock;
     }
-    void compareCategory(String category) {
-
-        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
-        if (category.equals("all")) {
+    public void compareCategory(String category, boolean secretModeON) {
+        if (secretModeON) {
+            System.out.printf("| %-4s | %-17s | %-35s | %-5s | %-8s |\n", "Nr.", "Name", "Category", "Price", "In Stock");
+            System.out.println("+------+-------------------+-------------------------------------+-------+----------+");
+        } else {
+            System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
+            System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        }
+        if (category.equals("allValid")) {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals("Not Available")) {
                     //nothing is printed
                 } else {
-                    printProducts(i);
+                    printProducts(i, false);
                 }
+            }
+        } else if (category.equals("all")) { //Printing all (including Non-Available)
+            for (int i = 0; i < productList.size(); i++) {
+                printProducts(i, false);
             }
         } else {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals(category)) {
-                    printProducts(i);
+                    printProducts(i, false);
                 }
             }
         }
     }
 
-    void printProducts(int product) {
+    void printProducts(int product, boolean secretModeON) {
+        if (secretModeON) {
+            System.out.printf("| %-4d | %-17s | %-35s | %-5d | %-8d |\n", product + 1, getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+            System.out.println("+------+-------------------+-------------------------------------+-------+----------+");
+        } else {
             System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
             System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        }
     }
 
     // returns Product

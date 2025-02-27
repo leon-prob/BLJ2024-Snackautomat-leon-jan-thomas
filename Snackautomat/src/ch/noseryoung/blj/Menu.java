@@ -1,6 +1,13 @@
 package ch.noseryoung.blj;
 
+import ch.noseryoung.blj.Products;
+import ch.noseryoung.blj.Purse;
+
+
+
 import java.util.Scanner;
+
+import static java.lang.Character.isDigit;
 
 public class Menu {
     Scanner menu = new Scanner(System.in);
@@ -38,8 +45,8 @@ public class Menu {
                 "###########################");
         System.out.println("# What do you wish to do? #\n" +
                 "###########################\n" +
-                "# Show ch.noseryoung.blj.Purse           1  #\n" +
-                "# Show all ch.noseryoung.blj.Products    2  #\n" +
+                "# Show Purse           1  #\n" +
+                "# Show all Products    2  #\n" +
                 "# Buy a Product        3  #\n" +
                 "# Exit                 4  #\n" +
                 "###########################\n");
@@ -53,10 +60,10 @@ public class Menu {
                     showPurse();
                     break;
                 case "2":
-                    showProductsMenu(); //Show all ch.noseryoung.blj.Products function
+                    showProductsMenu(); //Show all Products function
                     break;
                 case "3":
-                    initBuyProduct(); //Show buying ch.noseryoung.blj.Menu
+                    initBuyProduct(); //Show buying Menu
                     break;
                 case "4":
                     //Exit function
@@ -80,19 +87,19 @@ public class Menu {
                         "# What Product Category   #\n" +
                         "# do you want to see?     #\n" +
                         "###########################\n" +
-                        "# All ch.noseryoung.blj.Products         1  #\n" +
+                        "# All Products         1  #\n" +
                         "# Snacks               2  #\n" +
                         "# Beverage             3  #\n" +
                         "# others               4  #\n" +
-                        "# ch.noseryoung.blj.Main ch.noseryoung.blj.Menu            5  #\n" +
+                        "# Main Menu            5  #\n" +
                         "###########################\n");
         do {
             contin = false;
-            System.out.println("Enter a number (1-4)\nReturn to main ch.noseryoung.blj.Menu (5):");
+            System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
-                    category = "all";
+                    category = "allValid";
                     break;
                 case "2":
                     category = "Snacks";
@@ -112,7 +119,7 @@ public class Menu {
                     System.out.println("Invalid Input\nTry Again");
                     break;
             }
-            products.compareCategory(category);
+            products.compareCategory(category, false);
         } while (!contin);
 
     }
@@ -142,7 +149,7 @@ public class Menu {
         System.out.println("###########################");
         System.out.printf("# Balance          %6d #\n", purse.getBalance());
         System.out.println("###########################");
-        System.out.println("# Refill ch.noseryoung.blj.Purse        1  #");
+        System.out.println("# Refill Purse        1  #");
         System.out.println("# Exit                2  #");
         System.out.println("###########################");
         do {
@@ -157,7 +164,7 @@ public class Menu {
                     contin = false;
                     break;
                 case "2":
-                    System.out.println("Back to the ch.noseryoung.blj.Main ch.noseryoung.blj.Menu...");
+                    System.out.println("Back to the Main Menu...");
                     mainMenu();
                     break;
                 default:
@@ -168,13 +175,32 @@ public class Menu {
         } while (!contin);
     }
 
-    public void secretMenuChangePrice() {
+    public void secretMenuModifyPrice() {
 
+        products.compareCategory("all", true); //Printing all Products to choose
+        System.out.println("Wich Product do you want to Modify?\nPick a Product (exp: Coca Kola)");
+        String secretMenuChooseProduct = menu.nextLine();
+        if (isNumeric(secretMenuChooseProduct)) {
+            if (Integer.parseInt(secretMenuChooseProduct) >= 1 && Integer.parseInt(secretMenuChooseProduct) <= 20) {
+                //Notiz für morgen: Als nächstes mache ich einen Dialog um Name, Kategorie, Preis und num in stock zu verändern.
+
+            }
+        }
+        products.printProducts(1, true);
     }
 
     public void secretMenuChangeProduct() {
 
     }
+
+
+    //Function from ChatGPT. Checks whether a string is a number or not
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
-
-
