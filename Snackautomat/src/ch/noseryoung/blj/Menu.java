@@ -1,4 +1,4 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
 import java.util.Scanner;
 

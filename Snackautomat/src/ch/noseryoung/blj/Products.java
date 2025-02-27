@@ -1,4 +1,4 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ public class Products {
 
     private List<Products> productList = new ArrayList<>();
 
-    // Default constructor.
     public Products() {
         // Ini via initProducts().
     }

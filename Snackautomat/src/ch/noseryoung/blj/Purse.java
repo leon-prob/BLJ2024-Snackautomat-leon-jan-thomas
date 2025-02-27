@@ -1,4 +1,4 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
 public class Purse {
     private final int MAX_BALANCE = 100; // Maximum allowed balance in CHF.
