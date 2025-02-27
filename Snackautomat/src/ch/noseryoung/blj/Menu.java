@@ -13,6 +13,7 @@ public class Menu {
     private Scanner menu = new Scanner(System.in);
     private Products products;
     private Purse purse = new Purse(); // Purse starts with 100 CHF.
+    secretKey sk = new secretKey();
 
     public Menu(Products products) {
         this.products = products;
@@ -47,8 +48,8 @@ public class Menu {
     public void mainMenu() {
         boolean contin = true;
         System.out.println(
-                "###########################");
-        System.out.println("# What do you wish to do? #\n" +
+                "###########################\n" +
+                "# What do you wish to do? #\n" +
                 "###########################\n" +
                 "# Show Purse           1  #\n" +
                 "# Show all Products    2  #\n" +
@@ -74,7 +75,7 @@ public class Menu {
                     //Exit function
                     break;
                 case "sm":
-                    //secretMenu();
+                    sk.handleSecretKey("sm");
                     break;
                 default:
                     contin = false;
@@ -89,15 +90,15 @@ public class Menu {
         String category = "0";
         System.out.println(
                 "###########################\n" +
-                        "# What Product Category   #\n" +
-                        "# do you want to see?     #\n" +
-                        "###########################\n" +
-                        "# All Products         1  #\n" +
-                        "# Snacks               2  #\n" +
-                        "# Beverage             3  #\n" +
-                        "# others               4  #\n" +
-                        "# Main Menu            5  #\n" +
-                        "###########################\n");
+                "# What Product Category   #\n" +
+                "# do you want to see?     #\n" +
+                "###########################\n" +
+                "# All Products         1  #\n" +
+                "# Snacks               2  #\n" +
+                "# Beverage             3  #\n" +
+                "# others               4  #\n" +
+                "# Main Menu            5  #\n" +
+                "###########################\n");
         do {
             contin = false;
             System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
@@ -126,6 +127,7 @@ public class Menu {
             }
             products.compareCategory(category, false);
         } while (!contin);
+
     }
 
     private void initBuyProduct() {
@@ -142,7 +144,6 @@ public class Menu {
                         "#       [======]          #\n" +
                         "#       [______]          #\n" +
                         "###########################\n" +
-                        "#                         #\n" +
                         "#                         #\n" +
                         "#                         #\n" +
                         "###########################\n"
@@ -260,5 +261,4 @@ public class Menu {
         }
     }
 }
-
 

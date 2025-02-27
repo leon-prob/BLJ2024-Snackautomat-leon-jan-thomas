@@ -1,5 +1,8 @@
 package ch.noseryoung.blj;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +11,6 @@ public class Products {
     private String category;
     private int price;
     private int numInStock;
-
     private List<Products> productList = new ArrayList<>();
 
     public Products(String name, String category, int price, int numInStock) {
@@ -16,6 +18,8 @@ public class Products {
         this.category = category;
         this.price = price;
         this.numInStock = numInStock;
+        loadProducts();
+
     }
 
     void initProducts() {
@@ -53,7 +57,7 @@ public class Products {
         if (category.equals("valid")) {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals("Not Available")) {
-                    //nothing is printed
+                    // Nothing is printed
                 } else {
                     printProducts(i, secretModeON);
                 }
@@ -82,7 +86,6 @@ public class Products {
         }
     }
 
-    // returns Product
     public Products getProduct(int index) {
         if (index >= 0 && index < productList.size()) {
             return productList.get(index);
@@ -108,7 +111,47 @@ public class Products {
         return numInStock;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public void setNumInStock(int numInStock) {
         this.numInStock = numInStock;
+    }
+
+    public void saveProducts() {
+        try (FileWriter writer = new FileWriter("stock.txt")) {
+            for (Products product : productList) {
+                writer.write(product.getName() + "," + product.getCategory() + "," + product.getPrice() + "," + product.getNumInStock() + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving products to file: " + e.getMessage());
+        }
+    }
+
+    public void loadProducts() {
+        File file = new File("stock.txt");
+        if (!file.exists()) { // Check if the file doesn't exist
+            try {
+                if (file.createNewFile()) { // Try to create the file
+                    System.out.println("stock.txt created.");
+                } else {
+                    System.err.println("Unable to create stock.txt.");
+                }
+            } catch (IOException e) {
+                System.err.println("An error occurred while creating stock.txt: " + e.getMessage());
+            }
+        }
+        else {
+            initProducts();
+        }
     }
 }
