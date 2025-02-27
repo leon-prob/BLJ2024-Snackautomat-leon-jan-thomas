@@ -51,7 +51,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="blj.noseryoung.ch.Main" />
+      <option name="MAIN_CLASS_NAME" value="ch.noseryoung.blj.Main" />
       <module name="Snackautomat" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740640056807</updated>
       <workItem from="1740640059574" duration="1703000" />
-      <workItem from="1740643052932" duration="614000" />
+      <workItem from="1740643052932" duration="1117000" />
     </task>
     <servers />
   </component>
