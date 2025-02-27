@@ -194,7 +194,7 @@ public class Menu {
                 }
 
                 if (purse.getBalance() < selectedProduct.getPrice()) {
-                    System.out.println("You do not have enough money for this Product! Please refill your purse (max " + purse.getMAX_BALANCE() + " CHF) or choose another product.");
+                    System.out.println("You do not have enough money for this Product! Please refill your purse (max 100 CHF) or choose another product.");
                     continue;
                 }
 
