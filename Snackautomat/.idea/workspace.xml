@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5daca4-c98d-4987-8a16-017cbc864944" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/secretKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/secretMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stock.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,20 +61,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/ch/noseryoung/blj/Products.java</url>
-          <line>44</line>
-          <properties class="ch.noseryoung.blj.Products" method="compareCategory">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

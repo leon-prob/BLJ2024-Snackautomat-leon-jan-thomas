@@ -2,12 +2,16 @@ package ch.noseryoung.blj;
 
 import java.util.Scanner;
 
-public class secretKey {
+public class secretMenu {
     private final String SECRET_KEY = "sm"; // SecretKey
     private boolean initialFillingDone = false;
+    String name = "name";
+    String category = "category";
+    int price = 0;
+    int numInStock = 0;
 
     Scanner scanner = new Scanner(System.in);
-    Products products = new Products();
+    Products products = new Products(name, category, price, numInStock);
 
 
     public void handleSecretKey(String input) {
@@ -52,7 +56,7 @@ public class secretKey {
                     break;
                 case "5":
                     System.out.println("Back to the Main Menu...");
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(products);
                     menu.mainMenu();
                     break;
                 default:

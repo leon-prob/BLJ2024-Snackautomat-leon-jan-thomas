@@ -1,9 +1,5 @@
 package ch.noseryoung.blj;
 
-import ch.noseryoung.blj.Products;
-import ch.noseryoung.blj.Purse;
-
-
 
 import java.util.Scanner;
 
@@ -13,7 +9,7 @@ public class Menu {
     private Scanner menu = new Scanner(System.in);
     private Products products;
     private Purse purse = new Purse(); // Purse starts with 100 CHF.
-    secretKey sk = new secretKey();
+    secretMenu sk = new secretMenu();
 
     public Menu(Products products) {
         this.products = products;

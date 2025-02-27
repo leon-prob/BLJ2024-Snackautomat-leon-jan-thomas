@@ -19,7 +19,6 @@ public class Products {
         this.price = price;
         this.numInStock = numInStock;
         loadProducts();
-
     }
 
     void initProducts() {
@@ -149,9 +148,6 @@ public class Products {
             } catch (IOException e) {
                 System.err.println("An error occurred while creating stock.txt: " + e.getMessage());
             }
-        }
-        else {
-            initProducts();
         }
     }
 }
