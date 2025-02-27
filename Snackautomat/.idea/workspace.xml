@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5c5daca4-c98d-4987-8a16-017cbc864944" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Purse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/Purse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Purse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ch/noseryoung/blj/secretMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/secretMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stock.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,14 +20,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature-leon&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.main.executor": "Run",
+    "git-widget-placeholder": "develop",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
@@ -38,8 +39,37 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bfbf8400-dce2-4991-942a-46b77268f6bd" name="Changes" comment="" />
+      <created>1740640056807</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740640056807</updated>
+      <workItem from="1740640059574" duration="1703000" />
+      <workItem from="1740643052932" duration="1117000" />
+    </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
