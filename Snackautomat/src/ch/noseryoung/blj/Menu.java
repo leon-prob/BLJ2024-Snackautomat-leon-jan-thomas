@@ -211,6 +211,11 @@ public class Menu {
 
                 System.out.println("You bought " + multiplier + " " + selectedProduct.getName() + " for "
                         + totalCost + " CHF!");
+                purse.setBalance(purse.getBalance() - selectedProduct.getPrice()*multiplier);
+                selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
+
+                System.out.println("You bought " + selectedProduct.getName() + " for "
+                        + selectedProduct.getPrice()*multiplier + " CHF!");
                 System.out.println("Your new balance is: " + purse.getBalance() + " CHF");
 
                 mainMenu();
