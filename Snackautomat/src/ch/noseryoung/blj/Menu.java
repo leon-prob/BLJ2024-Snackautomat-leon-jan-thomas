@@ -87,16 +87,16 @@ public class Menu {
         do {
             String category = "0";
             System.out.println(
-                "###########################\n" +
-                "# What Product Category   #\n" +
-                "# do you want to see?     #\n" +
-                "###########################\n" +
-                "# All Products         1  #\n" +
-                "# Snacks               2  #\n" +
-                "# Beverage             3  #\n" +
-                "# others               4  #\n" +
-                "# Main Menu            5  #\n" +
-                "###########################\n");
+                    "###########################\n" +
+                            "# What Product Category   #\n" +
+                            "# do you want to see?     #\n" +
+                            "###########################\n" +
+                            "# All Products         1  #\n" +
+                            "# Snacks               2  #\n" +
+                            "# Beverage             3  #\n" +
+                            "# others               4  #\n" +
+                            "# Main Menu            5  #\n" +
+                            "###########################\n");
             contin = false;
             System.out.println("Enter a number (1-4) or\nReturn to main Menu (5):");
             String productCategory = menu.nextLine();
@@ -211,6 +211,11 @@ public class Menu {
 
                 System.out.println("You bought " + multiplier + " " + selectedProduct.getName() + " for "
                         + totalCost + " CHF!");
+                purse.setBalance(purse.getBalance() - selectedProduct.getPrice()*multiplier);
+                selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
+
+                System.out.println("You bought " + selectedProduct.getName() + " for "
+                        + selectedProduct.getPrice()*multiplier + " CHF!");
                 System.out.println("Your new balance is: " + purse.getBalance() + " CHF");
 
                 mainMenu();
@@ -267,12 +272,6 @@ public class Menu {
         products.printProducts(1, true);
     }
 
-    public void secretMenuChangeProduct() {
-
-    }
-
-
-    //Function from ChatGPT. Checks whether a string is a number or not
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
