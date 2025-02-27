@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Products {
     private String name;
@@ -22,28 +23,54 @@ public class Products {
     }
 
     void initProducts() {
-        productList.add(new Products("Coca Kola", "Beverage", 2, 10));
-        productList.add(new Products("Fanto", "Beverage", 2, 10));
-        productList.add(new Products("Spirite", "Beverage", 2, 10));
-        productList.add(new Products("RedGull", "Beverage", 3, 8));
-        productList.add(new Products("Water", "Beverage", 1, 15));
-        productList.add(new Products("Coffee", "Beverage", 2, 12));
-        productList.add(new Products("Sandwich", "Snacks", 5, 6));
-        productList.add(new Products("N&N", "Snacks", 3, 10));
-        productList.add(new Products("Nickers", "Snacks", 2, 10));
-        productList.add(new Products("Meltesers", "Snacks", 2, 10));
-        productList.add(new Products("Tringels", "Snacks", 3, 8));
-        productList.add(new Products("Haribu", "Snacks", 2, 10));
-        productList.add(new Products("Lighter", "others", 4, 5));
-        productList.add(new Products("Condoms", "others", 6, 5));
-        productList.add(new Products("Pregnancy Test", "others", 10, 3));
-        productList.add(new Products("Product 16", "Not Available", 0, 0));
-        productList.add(new Products("Product 17", "Not Available", 0, 0));
-        productList.add(new Products("Product 18", "Not Available", 0, 0));
-        productList.add(new Products("Product 19", "Not Available", 0, 0));
-        productList.add(new Products("Product 20", "Not Available", 0, 0));
+        File file = new File("stock.txt");
+        if (file.exists() && file.length() > 0) { // Check if file exists and has content
+            try (Scanner fileScanner = new Scanner(file)) {
+                while (fileScanner.hasNextLine()) {
+                    String line = fileScanner.nextLine();
+                    String[] parts = line.split(",");
+                    if (parts.length == 4) {
+                        String name = parts[0];
+                        String category = parts[1];
+                        int price = Integer.parseInt(parts[2]);
+                        int numInStock = Integer.parseInt(parts[3]);
+                        productList.add(new Products(name, category, price, numInStock));
+                    } else {
+                        System.err.println("Invalid product data in stock.txt: " + line);
+                    }
+                }
+                System.out.println("Products loaded from stock.txt.");
+            } catch (IOException e) {
+                System.err.println("Error reading products from file: " + e.getMessage());
+            }
+        } else {
+            // If the file doesn't exist or is empty, initialize with default data
+            productList.clear(); // Clear any existing data to avoid duplicates
+            productList.add(new Products("Coca Kola", "Beverage", 2, 0));
+            productList.add(new Products("Fanta", "Beverage", 2, 0));
+            productList.add(new Products("Sprite", "Beverage", 2, 0));
+            productList.add(new Products("Red Bull", "Beverage", 3, 0));
+            productList.add(new Products("Water", "Beverage", 1, 0));
+            productList.add(new Products("Coffee", "Beverage", 2, 0));
+            productList.add(new Products("Sandwich", "Snacks", 5, 0));
+            productList.add(new Products("M&Ms", "Snacks", 3, 0));
+            productList.add(new Products("Snickers", "Snacks", 2, 0));
+            productList.add(new Products("Maltesers", "Snacks", 2, 0));
+            productList.add(new Products("Tringles", "Snacks", 3, 0));
+            productList.add(new Products("Haribo", "Snacks", 2, 0));
+            productList.add(new Products("Lighter", "others", 4, 0));
+            productList.add(new Products("Condoms", "others", 6, 0));
+            productList.add(new Products("Pregnancy Test", "others", 10, 0));
+            productList.add(new Products("Product 16", "Not Available", 0, 0));
+            productList.add(new Products("Product 17", "Not Available", 0, 0));
+            productList.add(new Products("Product 18", "Not Available", 0, 0));
+            productList.add(new Products("Product 19", "Not Available", 0, 0));
+            productList.add(new Products("Product 20", "Not Available", 0, 0));
+
+            saveProducts(); // Save the initial data to the file
+            System.out.println("Default products initialized and saved to stock.txt.");
+        }
     }
-    // constructor for teh Products
 
     public void compareCategory(String category, boolean secretModeON) {
         if (secretModeON) {
@@ -63,7 +90,7 @@ public class Products {
             }
         } else if (category.equals("all")) { //Printing all (including Non-Available)
             for (int i = 0; i < productList.size(); i++) {
-                    printProducts(i, secretModeON);
+                printProducts(i, secretModeON);
             }
         }
         else {
@@ -126,28 +153,37 @@ public class Products {
         this.numInStock = numInStock;
     }
 
+    public List<Products> getProductList() {
+        return productList;
+    }
+
     public void saveProducts() {
-        try (FileWriter writer = new FileWriter("stock.txt")) {
+        try (FileWriter writer = new FileWriter("stock.txt", false)) { // False to overwrite, not append
             for (Products product : productList) {
-                writer.write(product.getName() + "," + product.getCategory() + "," + product.getPrice() + "," + product.getNumInStock() + "\n");
+                writer.write(product.getName() + "," + product.getCategory() + "," +
+                        product.getPrice() + "," + product.getNumInStock() + "\n");
             }
+            System.out.println("Products successfully saved to stock.txt.");
         } catch (IOException e) {
             System.err.println("Error saving products to file: " + e.getMessage());
+            e.printStackTrace(); // Print stack trace for debugging
         }
     }
 
     public void loadProducts() {
         File file = new File("stock.txt");
-        if (!file.exists()) { // Check if the file doesn't exist
+        if (!file.exists()) {
             try {
-                if (file.createNewFile()) { // Try to create the file
+                if (file.createNewFile()) {
                     System.out.println("stock.txt created.");
                 } else {
                     System.err.println("Unable to create stock.txt.");
                 }
             } catch (IOException e) {
-                System.err.println("An error occurred while creating stock.txt: " + e.getMessage());
+                System.err.println("Error creating stock.txt: " + e.getMessage());
             }
         }
     }
+
+    // Getters and setters remain unchanged...
 }

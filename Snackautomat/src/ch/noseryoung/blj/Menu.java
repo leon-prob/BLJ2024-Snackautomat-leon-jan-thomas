@@ -193,16 +193,24 @@ public class Menu {
                     continue;
                 }
 
-                if (purse.getBalance() < selectedProduct.getPrice()) {
-                    System.out.println("You do not have enough money for this Product! Please refill your purse (max 100 CHF) or choose another product.");
+                // Calculate total cost
+                int totalCost = selectedProduct.getPrice() * multiplier;
+
+                // Check if the user can afford the total cost
+                if (purse.getBalance() < totalCost) {
+                    System.out.println("You can't afford that many products! Try to buy fewer Products");
                     continue;
                 }
 
-                if (purse.getBalance() < selectedProduct.getPrice()*multiplier) {
-                    System.out.println("You can't afford that many products! Try to buy less Products");
-                    continue;
-                }
+                // Update balance and stock
+                purse.setBalance(purse.getBalance() - totalCost);
+                selectedProduct.setNumInStock(selectedProduct.getNumInStock() - multiplier);
 
+                // Save the updated products
+                products.saveProducts();
+
+                System.out.println("You bought " + multiplier + " " + selectedProduct.getName() + " for "
+                        + totalCost + " CHF!");
                 purse.setBalance(purse.getBalance() - selectedProduct.getPrice()*multiplier);
                 selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
 
