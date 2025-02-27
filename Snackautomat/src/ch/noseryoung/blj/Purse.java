@@ -1,6 +1,4 @@
-package blj.noseryoung.ch;
-
-import java.util.Scanner;
+package ch.noseryoung.blj;
 
 public class Purse {
     private int balance;

@@ -1,8 +1,4 @@
-package blj.noseryoung.ch;
-import blj.noseryoung.ch.Menu;
-import blj.noseryoung.ch.Products;
-
-
+package ch.noseryoung.blj;
 
 public class Main {
     public static void main(String[] args) {

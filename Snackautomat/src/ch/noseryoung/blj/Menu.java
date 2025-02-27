@@ -1,8 +1,4 @@
-package blj.noseryoung.ch;
-import blj.noseryoung.ch.Products;
-import blj.noseryoung.ch.Purse;
-
-
+package ch.noseryoung.blj;
 
 import java.util.Scanner;
 
@@ -42,8 +38,8 @@ public class Menu {
                 "###########################");
         System.out.println("# What do you wish to do? #\n" +
                 "###########################\n" +
-                "# Show Purse           1  #\n" +
-                "# Show all Products    2  #\n" +
+                "# Show ch.noseryoung.blj.Purse           1  #\n" +
+                "# Show all ch.noseryoung.blj.Products    2  #\n" +
                 "# Buy a Product        3  #\n" +
                 "# Exit                 4  #\n" +
                 "###########################\n");
@@ -57,10 +53,10 @@ public class Menu {
                     showPurse();
                     break;
                 case "2":
-                    showProductsMenu(); //Show all Products function
+                    showProductsMenu(); //Show all ch.noseryoung.blj.Products function
                     break;
                 case "3":
-                    initBuyProduct(); //Show buying Menu
+                    initBuyProduct(); //Show buying ch.noseryoung.blj.Menu
                     break;
                 case "4":
                     //Exit function
@@ -84,15 +80,15 @@ public class Menu {
                         "# What Product Category   #\n" +
                         "# do you want to see?     #\n" +
                         "###########################\n" +
-                        "# All Products         1  #\n" +
+                        "# All ch.noseryoung.blj.Products         1  #\n" +
                         "# Snacks               2  #\n" +
                         "# Beverage             3  #\n" +
                         "# others               4  #\n" +
-                        "# Main Menu            5  #\n" +
+                        "# ch.noseryoung.blj.Main ch.noseryoung.blj.Menu            5  #\n" +
                         "###########################\n");
         do {
             contin = false;
-            System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
+            System.out.println("Enter a number (1-4)\nReturn to main ch.noseryoung.blj.Menu (5):");
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
@@ -146,7 +142,7 @@ public class Menu {
         System.out.println("###########################");
         System.out.printf("# Balance          %6d #\n", purse.getBalance());
         System.out.println("###########################");
-        System.out.println("# Refill Purse        1  #");
+        System.out.println("# Refill ch.noseryoung.blj.Purse        1  #");
         System.out.println("# Exit                2  #");
         System.out.println("###########################");
         do {
@@ -161,7 +157,7 @@ public class Menu {
                     contin = false;
                     break;
                 case "2":
-                    System.out.println("Back to the Main Menu...");
+                    System.out.println("Back to the ch.noseryoung.blj.Main ch.noseryoung.blj.Menu...");
                     mainMenu();
                     break;
                 default:

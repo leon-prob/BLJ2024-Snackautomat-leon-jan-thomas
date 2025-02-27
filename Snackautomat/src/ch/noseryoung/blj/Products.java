@@ -1,8 +1,7 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Products {
     private String name;
@@ -38,7 +37,7 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
-    // constructor for teh Products
+    // constructor for teh ch.noseryoung.blj.Products
     public Products(String name, String category, int price, int numInStock) {
         this.name = name;
         this.category = category;
