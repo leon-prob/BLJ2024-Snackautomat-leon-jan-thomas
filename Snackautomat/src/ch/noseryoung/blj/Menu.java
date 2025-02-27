@@ -104,7 +104,7 @@ public class Menu {
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
-                    category = "allValid";
+                    category = "valid";
                     break;
                 case "2":
                     category = "Snacks";
@@ -142,12 +142,14 @@ public class Menu {
                         "#       [======]          #\n" +
                         "#       [______]          #\n" +
                         "###########################\n" +
-                        "# Choose a number from    #\n" +
-                        "# above (01-20)           #\n" +
+                        "#                         #\n" +
+                        "#                         #\n" +
+                        "#                         #\n" +
                         "###########################\n"
         );
 
         while (true) {
+            products.compareCategory("valid", true); //Printing all Products to choose
             System.out.print("Enter product number (1-20) or 'x' to return to Main Menu: ");
             String input = menu.nextLine();
 

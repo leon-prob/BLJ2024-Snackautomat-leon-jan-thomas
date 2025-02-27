@@ -52,25 +52,26 @@ public class Products {
             System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
             System.out.println("+-------------------+-------------------------------------+-------+----------+");
         }
-        if (category.equals("allValid")) {
+        if (category.equals("valid")) {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals("Not Available")) {
                     //nothing is printed
                 } else {
-                    printProducts(i, false);
+                    printProducts(i, secretModeON);
                 }
             }
         } else if (category.equals("all")) { //Printing all (including Non-Available)
             for (int i = 0; i < productList.size(); i++) {
-                    printProducts(i, false);
-            }
-        } else {
-            for (int i = 0; i < productList.size(); i++) {
-                if (getProduct(i).getCategory().equals(category)) {
-                    printProducts(i, false);
-                }
+                    printProducts(i, secretModeON);
             }
         }
+        //else {
+        //    for (int i = 0; i < productList.size(); i++) {
+        //        if (getProduct(i).getCategory().equals(category)) {
+        //            printProducts(i, secretModeON);
+        //        }
+        //    }
+        //}
     }
 
     void printProducts(int product, boolean secretModeON) {
