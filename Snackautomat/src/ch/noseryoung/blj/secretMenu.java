@@ -53,7 +53,7 @@ public class secretMenu {
                     changePrice();
                     break;
                 case "4":
-                    // restockAll();
+                    restockAll();
                     break;
                 case "5":
                     contin = true;
@@ -167,5 +167,14 @@ public class secretMenu {
                 scanner.nextLine(); // Clear invalid input
             }
         }
+    }
+    private void restockAll() {
+        for (Products product : products.getProductList()) {
+            if (!product.getCategory().equals("Not Available")) {
+                product.setNumInStock(20);
+            }
+        }
+        products.saveProducts();
+        System.out.println("All products have been restocked to 20 units each.");
     }
 }
