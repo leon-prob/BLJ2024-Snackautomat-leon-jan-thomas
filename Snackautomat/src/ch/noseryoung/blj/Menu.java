@@ -42,6 +42,7 @@ public class Menu {
 
 
     public void mainMenu() {
+
         boolean contin = true;
         System.out.println(
                 "###########################\n" +
@@ -83,8 +84,9 @@ public class Menu {
 
     public void showProductsMenu() { //printing menu for Product category
         boolean contin;
-        String category = "0";
-        System.out.println(
+        do {
+            String category = "0";
+            System.out.println(
                 "###########################\n" +
                 "# What Product Category   #\n" +
                 "# do you want to see?     #\n" +
@@ -95,22 +97,29 @@ public class Menu {
                 "# others               4  #\n" +
                 "# Main Menu            5  #\n" +
                 "###########################\n");
-        do {
             contin = false;
-            System.out.println("Enter a number (1-4)\nReturn to main Menu (5):");
+            System.out.println("Enter a number (1-4) or\nReturn to main Menu (5):");
             String productCategory = menu.nextLine();
             switch (productCategory) {
                 case "1":
                     category = "valid";
+                    products.compareCategory(category, false);
+
                     break;
                 case "2":
                     category = "Snacks";
+                    products.compareCategory(category, false);
+
                     break;
                 case "3":
                     category = "Beverage";
+                    products.compareCategory(category, false);
+
                     break;
                 case "4":
                     category = "others";
+                    products.compareCategory(category, false);
+
                     break;
                 case "5":
                     contin = true;
@@ -121,7 +130,6 @@ public class Menu {
                     System.out.println("Invalid Input\nTry Again");
                     break;
             }
-            products.compareCategory(category, false);
         } while (!contin);
 
     }
@@ -148,18 +156,27 @@ public class Menu {
         while (true) {
             products.compareCategory("valid", true); //Printing all Products to choose
             System.out.print("Enter product number (1-20) or 'x' to return to Main Menu: ");
-            String input = menu.nextLine();
+            String prodNum = menu.nextLine();
+            System.out.print("How many of them do you want to buy (1-5) or 'x' to return to Main Menu: ");
+            String quantity  = menu.nextLine();
 
-            if (input.equalsIgnoreCase("x")) {
+
+            if (prodNum.equalsIgnoreCase("x") || quantity.equalsIgnoreCase("x")) {
                 mainMenu();
                 return;
             }
 
             try {
-                int productIndex = Integer.parseInt(input);
+                int productIndex = Integer.parseInt(prodNum);
+                int multiplier = Integer.parseInt(quantity);
 
                 if (productIndex < 1 || productIndex > 20) {
                     System.out.println("Please enter a valid number between 1 and 20.");
+                    continue;
+                }
+
+                if (multiplier < 1 || multiplier > 20) {
+                    System.out.println("Please enter a valid number between 1 and 5.");
                     continue;
                 }
 
@@ -177,7 +194,12 @@ public class Menu {
                 }
 
                 if (purse.getBalance() < selectedProduct.getPrice()) {
-                    System.out.println("You do not have enough money. Please refill your purse (max 100 CHF) or choose another product.");
+                    System.out.println("You do not have enough money for this Product! Please refill your purse (max " + purse.getMAX_BALANCE() + " CHF) or choose another product.");
+                    continue;
+                }
+
+                if (purse.getBalance() < selectedProduct.getPrice()*multiplier) {
+                    System.out.println("You can't afford that many products! Try to buy less Products");
                     continue;
                 }
 
