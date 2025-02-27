@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfbf8400-dce2-4991-942a-46b77268f6bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/Purse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/Purse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blj/noseryoung/ch/secretKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/noseryoung/blj/secretKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="bfbf8400-dce2-4991-942a-46b77268f6bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,22 +13,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "tlsstern"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tlsstern&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/leon-prob/BLJ2024-Snackautomat-leon-jan-thomas.git",
-    "accountId": "a3d9c3c4-ce43-48e0-be73-d3d40db3d3da"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/leon-prob/BLJ2024-Snackautomat-leon-jan-thomas.git&quot;,
+    &quot;accountId&quot;: &quot;a3d9c3c4-ce43-48e0-be73-d3d40db3d3da&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2tc8Z3j4QFAdSXfcfcdGtkKZbFs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,7 +39,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature-thomas",
+    "git-widget-placeholder": "#26 on feature-thomas",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
