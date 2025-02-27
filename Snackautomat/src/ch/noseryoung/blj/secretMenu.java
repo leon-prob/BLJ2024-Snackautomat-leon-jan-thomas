@@ -105,8 +105,14 @@ public class secretMenu {
         System.out.println("Enter the name of the new product:");
         String newName = scanner.nextLine();
 
-        System.out.println("Enter the category of the new product:");
+        System.out.println("Enter the category of the new product (Beverage, Snacks, others):");
         String newCategory = scanner.nextLine();
+
+        // Validate the category
+        while (!newCategory.equals("Beverage") && !newCategory.equals("Snacks") && !newCategory.equals("others")) {
+            System.out.println("Invalid category. Please enter Beverage, Snacks, or others:");
+            newCategory = scanner.nextLine();
+        }
 
         System.out.println("Enter the price of the new product:");
         int newPrice = scanner.nextInt();
@@ -131,21 +137,35 @@ public class secretMenu {
 
     private void changePrice() {
         products.compareCategory("all", true);
-        System.out.println("Enter the product number to change price:");
-        int productNumber = scanner.nextInt();
-        scanner.nextLine();
 
-        System.out.println("Enter the new price:");
-        int newPrice = scanner.nextInt();
-        scanner.nextLine();
+        while (true) {
+            System.out.println("Enter the product number to change price:");
+            if (scanner.hasNextInt()) {
+                int productNumber = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline
 
-        Products product = products.getProduct(productNumber - 1);
-        if (product != null) {
-            product.setPrice(newPrice);
-            products.saveProducts();
-            System.out.println("Price changed successfully.");
-        } else {
-            System.out.println("Invalid product number.");
+                System.out.println("Enter the new price:");
+                if (scanner.hasNextInt()) {
+                    int newPrice = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline
+
+                    Products product = products.getProduct(productNumber - 1);
+                    if (product != null) {
+                        product.setPrice(newPrice);
+                        products.saveProducts();
+                        System.out.println("Price changed successfully.");
+                        break; // Exit the loop if successful
+                    } else {
+                        System.out.println("Invalid product number.");
+                    }
+                } else {
+                    System.out.println("Invalid input for new price. Please enter an integer.");
+                    scanner.nextLine(); // Clear invalid input
+                }
+            } else {
+                System.out.println("Invalid input for product number. Please enter an integer.");
+                scanner.nextLine(); // Clear invalid input
+            }
         }
     }
 }
