@@ -1,7 +1,5 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
-import blj.noseryoung.ch.Products;
-import blj.noseryoung.ch.Purse;
 import java.util.Scanner;
 
 public class Menu {

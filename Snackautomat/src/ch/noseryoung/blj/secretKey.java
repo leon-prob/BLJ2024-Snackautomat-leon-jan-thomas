@@ -1,4 +1,4 @@
-package blj.noseryoung.ch;
+package ch.noseryoung.blj;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class secretKey {
         boolean contin;
         System.out.println(
                 "###########################\n" +
-                "# Secret Menu              #\n" +
+                "# Secret Menu             #\n" +
                 "###########################\n" +
                 "# Refill Product       1  #\n" +
                 "# Replace Product      2  #\n" +
