@@ -27,7 +27,9 @@ public class secretMenu {
         }
 
         boolean contin;
-        System.out.println(
+        do {
+
+            System.out.println(
                 "###########################\n" +
                 "# Secret Menu             #\n" +
                 "###########################\n" +
@@ -37,8 +39,7 @@ public class secretMenu {
                 "# Restock All          4  #\n" +
                 "# Main Menu            5  #\n" +
                 "###########################\n");
-        do {
-            contin = true;
+            contin = false;
             System.out.println("Enter a number (1-4):");
             String secretMenu = scanner.nextLine();
             switch (secretMenu) {
@@ -55,6 +56,7 @@ public class secretMenu {
                     // restockAll();
                     break;
                 case "5":
+                    contin = true;
                     System.out.println("Back to the Main Menu...");
                     Menu menu = new Menu(products);
                     menu.mainMenu();
@@ -74,6 +76,7 @@ public class secretMenu {
     }
 
     private void refillProduct() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to refill:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();
@@ -94,6 +97,7 @@ public class secretMenu {
     }
 
     private void replaceProduct() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to replace:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();
@@ -126,6 +130,7 @@ public class secretMenu {
     }
 
     private void changePrice() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to change price:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();

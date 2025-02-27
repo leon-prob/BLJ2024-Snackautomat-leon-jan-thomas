@@ -66,13 +66,13 @@ public class Products {
                     printProducts(i, secretModeON);
             }
         }
-        //else {
-        //    for (int i = 0; i < productList.size(); i++) {
-        //        if (getProduct(i).getCategory().equals(category)) {
-        //            printProducts(i, secretModeON);
-        //        }
-        //    }
-        //}
+        else {
+            for (int i = 0; i < productList.size(); i++) {
+                if (getProduct(i).getCategory().equals(category)) {
+                    printProducts(i, secretModeON);
+                }
+            }
+        }
     }
 
     void printProducts(int product, boolean secretModeON) {
