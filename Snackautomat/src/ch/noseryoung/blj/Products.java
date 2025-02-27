@@ -11,8 +11,11 @@ public class Products {
 
     private List<Products> productList = new ArrayList<>();
 
-    public Products() {
-        initProducts();
+    public Products(String name, String category, int price, int numInStock) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.numInStock = numInStock;
     }
 
     void initProducts() {
@@ -38,12 +41,7 @@ public class Products {
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
     // constructor for teh Products
-    public Products(String name, String category, int price, int numInStock) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.numInStock = numInStock;
-    }
+
     public void compareCategory(String category, boolean secretModeON) {
         if (secretModeON) {
             System.out.printf("| %-4s | %-17s | %-35s | %-5s | %-8s |\n", "Nr.", "Name", "Category", "Price", "In Stock");
