@@ -2,12 +2,16 @@ package ch.noseryoung.blj;
 
 import java.util.Scanner;
 
-public class secretKey {
+public class secretMenu {
     private final String SECRET_KEY = "sm"; // SecretKey
     private boolean initialFillingDone = false;
+    String name = "name";
+    String category = "category";
+    int price = 0;
+    int numInStock = 0;
 
     Scanner scanner = new Scanner(System.in);
-    Products products = new Products();
+    Products products = new Products(name, category, price, numInStock);
 
 
     public void handleSecretKey(String input) {
@@ -23,7 +27,9 @@ public class secretKey {
         }
 
         boolean contin;
-        System.out.println(
+        do {
+
+            System.out.println(
                 "###########################\n" +
                 "# Secret Menu             #\n" +
                 "###########################\n" +
@@ -33,8 +39,7 @@ public class secretKey {
                 "# Restock All          4  #\n" +
                 "# Main Menu            5  #\n" +
                 "###########################\n");
-        do {
-            contin = true;
+            contin = false;
             System.out.println("Enter a number (1-4):");
             String secretMenu = scanner.nextLine();
             switch (secretMenu) {
@@ -51,8 +56,9 @@ public class secretKey {
                     // restockAll();
                     break;
                 case "5":
+                    contin = true;
                     System.out.println("Back to the Main Menu...");
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(products);
                     menu.mainMenu();
                     break;
                 default:
@@ -70,6 +76,7 @@ public class secretKey {
     }
 
     private void refillProduct() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to refill:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();
@@ -90,6 +97,7 @@ public class secretKey {
     }
 
     private void replaceProduct() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to replace:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();
@@ -122,6 +130,7 @@ public class secretKey {
     }
 
     private void changePrice() {
+        products.compareCategory("all", true);
         System.out.println("Enter the product number to change price:");
         int productNumber = scanner.nextInt();
         scanner.nextLine();

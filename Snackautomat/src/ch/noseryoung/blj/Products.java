@@ -13,7 +13,11 @@ public class Products {
     private int numInStock;
     private List<Products> productList = new ArrayList<>();
 
-    public Products() {
+    public Products(String name, String category, int price, int numInStock) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.numInStock = numInStock;
         loadProducts();
     }
 
@@ -39,37 +43,46 @@ public class Products {
         productList.add(new Products("Product 19", "Not Available", 0, 0));
         productList.add(new Products("Product 20", "Not Available", 0, 0));
     }
+    // constructor for teh Products
 
-    public Products(String name, String category, int price, int numInStock) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.numInStock = numInStock;
-    }
-
-    void compareCategory(String category) {
-        System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
-        if (category.equals("all")) {
+    public void compareCategory(String category, boolean secretModeON) {
+        if (secretModeON) {
+            System.out.printf("| %-4s | %-17s | %-35s | %-5s | %-8s |\n", "Nr.", "Name", "Category", "Price", "In Stock");
+            System.out.println("+------+-------------------+-------------------------------------+-------+----------+");
+        } else {
+            System.out.printf("| %-17s | %-35s | %-5s | %-8s |\n", "Name", "Category", "Price", "In Stock");
+            System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        }
+        if (category.equals("valid")) {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals("Not Available")) {
                     // Nothing is printed
                 } else {
-                    printProducts(i);
+                    printProducts(i, secretModeON);
                 }
             }
-        } else {
+        } else if (category.equals("all")) { //Printing all (including Non-Available)
+            for (int i = 0; i < productList.size(); i++) {
+                    printProducts(i, secretModeON);
+            }
+        }
+        else {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals(category)) {
-                    printProducts(i);
+                    printProducts(i, secretModeON);
                 }
             }
         }
     }
 
-    void printProducts(int product) {
-        System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
-        System.out.println("+-------------------+-------------------------------------+-------+----------+");
+    void printProducts(int product, boolean secretModeON) {
+        if (secretModeON) {
+            System.out.printf("| %-4d | %-17s | %-35s | %-5d | %-8d |\n", product + 1, getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+            System.out.println("+------+-------------------+-------------------------------------+-------+----------+");
+        } else {
+            System.out.printf("| %-17s | %-35s | %-5d | %-8d |\n", getProduct(product).getName(), getProduct(product).getCategory(), getProduct(product).getPrice(), getProduct(product).getNumInStock());
+            System.out.println("+-------------------+-------------------------------------+-------+----------+");
+        }
     }
 
     public Products getProduct(int index) {
@@ -80,6 +93,7 @@ public class Products {
         }
     }
 
+    // Getters
     public String getName() {
         return name;
     }
@@ -134,9 +148,6 @@ public class Products {
             } catch (IOException e) {
                 System.err.println("An error occurred while creating stock.txt: " + e.getMessage());
             }
-        }
-        else {
-            initProducts();
         }
     }
 }
