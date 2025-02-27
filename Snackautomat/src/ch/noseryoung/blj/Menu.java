@@ -10,9 +10,13 @@ import java.util.Scanner;
 import static java.lang.Character.isDigit;
 
 public class Menu {
-    Scanner menu = new Scanner(System.in);
-    Products products = new Products();
-    Purse purse = new Purse();
+    private Scanner menu = new Scanner(System.in);
+    private Products products;
+    private Purse purse = new Purse(); // Purse starts with 100 CHF.
+
+    public Menu(Products products) {
+        this.products = products;
+    }
 
     public void introScreen() {
         System.out.println("Welcome to THE\n" +
@@ -38,6 +42,7 @@ public class Menu {
                 "                                                                   ");
         mainMenu();
     }
+
 
     public void mainMenu() {
         boolean contin = true;
@@ -121,7 +126,6 @@ public class Menu {
             }
             products.compareCategory(category, false);
         } while (!contin);
-
     }
 
     private void initBuyProduct() {
@@ -140,23 +144,73 @@ public class Menu {
                         "###########################\n" +
                         "# Choose a number from    #\n" +
                         "# above (01-20)           #\n" +
-                        "###########################\n");
+                        "###########################\n"
+        );
+
+        while (true) {
+            System.out.print("Enter product number (1-20) or 'x' to return to Main Menu: ");
+            String input = menu.nextLine();
+
+            if (input.equalsIgnoreCase("x")) {
+                mainMenu();
+                return;
+            }
+
+            try {
+                int productIndex = Integer.parseInt(input);
+
+                if (productIndex < 1 || productIndex > 20) {
+                    System.out.println("Please enter a valid number between 1 and 20.");
+                    continue;
+                }
+
+                Products selectedProduct = products.getProduct(productIndex - 1);
+
+                if (selectedProduct == null) {
+                    System.out.println("No product found at that slot. Try again.");
+                    continue;
+                }
+
+                if (selectedProduct.getCategory().equals("Not Available")
+                        || selectedProduct.getNumInStock() <= 0) {
+                    System.out.println("Sorry, that product is not available or out of stock.");
+                    continue;
+                }
+
+                if (purse.getBalance() < selectedProduct.getPrice()) {
+                    System.out.println("You do not have enough money. Please refill your purse (max 100 CHF) or choose another product.");
+                    continue;
+                }
+
+                purse.setBalance(purse.getBalance() - selectedProduct.getPrice());
+                selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
+
+                System.out.println("You bought " + selectedProduct.getName() + " for "
+                        + selectedProduct.getPrice() + " CHF!");
+                System.out.println("Your new balance is: " + purse.getBalance() + " CHF");
+
+                mainMenu();
+                return;
+
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, please try again.");
+            }
+        }
     }
 
     public void showPurse() {
         boolean contin;
-        Scanner scanner = new Scanner(System.in);
         System.out.println("###########################");
-        System.out.printf("# Balance          %6d #\n", purse.getBalance());
+        System.out.printf("# Balance: %6d CHF    #\n", purse.getBalance());
         System.out.println("###########################");
         System.out.println("# Refill Purse        1  #");
         System.out.println("# Exit                2  #");
         System.out.println("###########################");
         do {
             contin = true;
-            System.out.print("Choose a Option (1-2): ");
+            System.out.print("Choose an Option (1-2): ");
 
-            String inputPurse = scanner.nextLine();
+            String inputPurse = menu.nextLine();
 
             switch (inputPurse) {
                 case "1":

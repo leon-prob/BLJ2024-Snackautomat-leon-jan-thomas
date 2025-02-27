@@ -2,7 +2,6 @@ package ch.noseryoung.blj;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Products {
     private String name;
@@ -93,8 +92,7 @@ public class Products {
         }
     }
 
-
-    // Getter-Methode
+    // Getters
     public String getName() {
         return name;
     }
@@ -109,5 +107,9 @@ public class Products {
 
     public int getNumInStock() {
         return numInStock;
+    }
+
+    public void setNumInStock(int numInStock) {
+        this.numInStock = numInStock;
     }
 }
