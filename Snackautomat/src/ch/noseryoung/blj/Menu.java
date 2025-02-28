@@ -12,8 +12,6 @@ public class Menu {
     public Menu(Products products) {
         this.products = products;
     }
-
-    //Function from ChatGPT. Checks whether a string is a number or not
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -23,7 +21,7 @@ public class Menu {
         }
     }
 
-    public void introScreen() {
+    public void introScreen() { // ASCII Art
         System.out.println("Welcome to THE\n" +
                 " /$$    /$$                          /$$ /$$                       \n" +
                 "| $$   | $$                         | $$|__/                       \n" +
@@ -53,13 +51,13 @@ public class Menu {
         boolean contin = true;
         System.out.println(
                 "###########################\n" +
-                        "# What do you wish to do? #\n" +
-                        "###########################\n" +
-                        "# Show Purse           1  #\n" +
-                        "# Show all Products    2  #\n" +
-                        "# Buy a Product        3  #\n" +
-                        "# Exit                 4  #\n" +
-                        "###########################\n");
+                "# What do you wish to do? #\n" +
+                "###########################\n" +
+                "# Show Purse           1  #\n" +
+                "# Show all Products    2  #\n" +
+                "# Buy a Product        3  #\n" +
+                "# Exit                 4  #\n" +
+                "###########################\n");
 
         do {
             contin = true;
@@ -67,7 +65,7 @@ public class Menu {
             String mainMenu = menu.nextLine();
             switch (mainMenu) {
                 case "1":
-                    showPurse();
+                    showPurse(); // Display Purse
                     break;
                 case "2":
                     showProductsMenu(); //Show all Products function
@@ -76,10 +74,10 @@ public class Menu {
                     initBuyProduct(); //Show buying Menu
                     break;
                 case "4":
-                    //Exit function
+                    //Exit
                     break;
                 case "sm":
-                    sk.handleSecretKey("sm");
+                    sk.handleSecretKey("sm"); // SecretMenu
                     break;
                 default:
                     contin = false;
@@ -271,15 +269,11 @@ public class Menu {
         System.out.println("Wich Product do you want to Modify?\nPick a Product (exp: Coca Kola)");
         String secretMenuChooseProduct = menu.nextLine();
         if (isNumeric(secretMenuChooseProduct)) {
-            if (Integer.parseInt(secretMenuChooseProduct) >= 1 && Integer.parseInt(secretMenuChooseProduct) <= 20) {
-                //Notiz für morgen: Als nächstes mache ich einen Dialog um Name, Kategorie, Preis und num in stock zu verändern.
-
-            }
+            if (Integer.parseInt(secretMenuChooseProduct) >= 1 && Integer.parseInt(secretMenuChooseProduct) <= 20) {}
         }
         products.printProducts(1, true);
     }
 
-    //Function from ChatGPT. Checks whether a string is a number or not
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);

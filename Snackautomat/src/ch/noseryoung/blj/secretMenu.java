@@ -29,14 +29,14 @@ public class secretMenu {
 
             System.out.println(
                     "###########################\n" +
-                            "# Secret Menu             #\n" +
-                            "###########################\n" +
-                            "# Refill Product       1  #\n" +
-                            "# Replace Product      2  #\n" +
-                            "# Change Price         3  #\n" +
-                            "# Restock All          4  #\n" +
-                            "# Main Menu            5  #\n" +
-                            "###########################\n");
+                    "# Secret Menu             #\n" +
+                    "###########################\n" +
+                    "# Refill Product       1  #\n" +
+                    "# Replace Product      2  #\n" +
+                    "# Change Price         3  #\n" +
+                    "# Restock All          4  #\n" +
+                    "# Main Menu            5  #\n" +
+                    "###########################\n");
             contin = false;
             System.out.println("Enter a number (1-4):");
             String secretMenu = scanner.nextLine();

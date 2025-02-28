@@ -183,6 +183,4 @@ public class Products {
             }
         }
     }
-
-    // Getters and setters remain unchanged...
 }
