@@ -12,14 +12,6 @@ public class Menu {
     public Menu(Products products) {
         this.products = products;
     }
-    public static boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 
     public void introScreen() { // ASCII Art
         System.out.println("Welcome to THE\n" +
