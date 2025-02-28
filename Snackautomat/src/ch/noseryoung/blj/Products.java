@@ -12,7 +12,7 @@ public class Products {
     private String category;
     private int price;
     private int numInStock;
-    private List<Products> productList = new ArrayList<>();
+    private final List<Products> productList = new ArrayList<>();
 
     public Products(String name, String category, int price, int numInStock) {
         this.name = name;
@@ -92,8 +92,7 @@ public class Products {
             for (int i = 0; i < productList.size(); i++) {
                 printProducts(i, secretModeON);
             }
-        }
-        else {
+        } else {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals(category)) {
                     printProducts(i, secretModeON);
@@ -125,28 +124,28 @@ public class Products {
         return name;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public int getNumInStock() {
-        return numInStock;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getNumInStock() {
+        return numInStock;
     }
 
     public void setNumInStock(int numInStock) {

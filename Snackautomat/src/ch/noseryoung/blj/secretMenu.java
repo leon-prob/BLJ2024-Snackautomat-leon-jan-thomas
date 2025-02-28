@@ -4,15 +4,13 @@ import java.util.Scanner;
 
 public class secretMenu {
     private final String SECRET_KEY = "sm"; // SecretKey
-    private boolean initialFillingDone = false;
     String name = "name";
     String category = "category";
     int price = 0;
     int numInStock = 0;
-
     Scanner scanner = new Scanner(System.in);
     Products products = new Products(name, category, price, numInStock);
-
+    private boolean initialFillingDone = false;
 
     public void handleSecretKey(String input) {
         if (input.equals(SECRET_KEY)) {
@@ -30,15 +28,15 @@ public class secretMenu {
         do {
 
             System.out.println(
-                "###########################\n" +
-                "# Secret Menu             #\n" +
-                "###########################\n" +
-                "# Refill Product       1  #\n" +
-                "# Replace Product      2  #\n" +
-                "# Change Price         3  #\n" +
-                "# Restock All          4  #\n" +
-                "# Main Menu            5  #\n" +
-                "###########################\n");
+                    "###########################\n" +
+                            "# Secret Menu             #\n" +
+                            "###########################\n" +
+                            "# Refill Product       1  #\n" +
+                            "# Replace Product      2  #\n" +
+                            "# Change Price         3  #\n" +
+                            "# Restock All          4  #\n" +
+                            "# Main Menu            5  #\n" +
+                            "###########################\n");
             contin = false;
             System.out.println("Enter a number (1-4):");
             String secretMenu = scanner.nextLine();
@@ -168,6 +166,7 @@ public class secretMenu {
             }
         }
     }
+
     private void restockAll() {
         for (Products product : products.getProductList()) {
             if (!product.getCategory().equals("Not Available")) {

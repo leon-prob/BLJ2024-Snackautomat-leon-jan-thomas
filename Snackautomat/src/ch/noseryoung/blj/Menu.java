@@ -3,16 +3,24 @@ package ch.noseryoung.blj;
 
 import java.util.Scanner;
 
-import static java.lang.Character.isDigit;
-
 public class Menu {
-    private Scanner menu = new Scanner(System.in);
-    private Products products;
-    private Purse purse = new Purse(); // Purse starts with 100 CHF.
     secretMenu sk = new secretMenu();
+    private final Scanner menu = new Scanner(System.in);
+    private final Products products;
+    private final Purse purse = new Purse(); // Purse starts with 100 CHF.
 
     public Menu(Products products) {
         this.products = products;
+    }
+
+    //Function from ChatGPT. Checks whether a string is a number or not
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void introScreen() {
@@ -40,19 +48,18 @@ public class Menu {
         mainMenu();
     }
 
-
     public void mainMenu() {
 
         boolean contin = true;
         System.out.println(
                 "###########################\n" +
-                "# What do you wish to do? #\n" +
-                "###########################\n" +
-                "# Show Purse           1  #\n" +
-                "# Show all Products    2  #\n" +
-                "# Buy a Product        3  #\n" +
-                "# Exit                 4  #\n" +
-                "###########################\n");
+                        "# What do you wish to do? #\n" +
+                        "###########################\n" +
+                        "# Show Purse           1  #\n" +
+                        "# Show all Products    2  #\n" +
+                        "# Buy a Product        3  #\n" +
+                        "# Exit                 4  #\n" +
+                        "###########################\n");
 
         do {
             contin = true;
@@ -87,16 +94,16 @@ public class Menu {
         do {
             String category = "0";
             System.out.println(
-                "###########################\n" +
-                "# What Product Category   #\n" +
-                "# do you want to see?     #\n" +
-                "###########################\n" +
-                "# All Products         1  #\n" +
-                "# Snacks               2  #\n" +
-                "# Beverage             3  #\n" +
-                "# others               4  #\n" +
-                "# Main Menu            5  #\n" +
-                "###########################\n");
+                    "###########################\n" +
+                            "# What Product Category   #\n" +
+                            "# do you want to see?     #\n" +
+                            "###########################\n" +
+                            "# All Products         1  #\n" +
+                            "# Snacks               2  #\n" +
+                            "# Beverage             3  #\n" +
+                            "# others               4  #\n" +
+                            "# Main Menu            5  #\n" +
+                            "###########################\n");
             contin = false;
             System.out.println("Enter a number (1-4) or\nReturn to main Menu (5):");
             String productCategory = menu.nextLine();
@@ -158,7 +165,7 @@ public class Menu {
             System.out.print("Enter product number (1-20) or 'x' to return to Main Menu: ");
             String prodNum = menu.nextLine();
             System.out.print("How many of them do you want to buy (1-5) or 'x' to return to Main Menu: ");
-            String quantity  = menu.nextLine();
+            String quantity = menu.nextLine();
 
 
             if (prodNum.equalsIgnoreCase("x") || quantity.equalsIgnoreCase("x")) {
@@ -211,11 +218,11 @@ public class Menu {
 
                 System.out.println("You bought " + multiplier + " " + selectedProduct.getName() + " for "
                         + totalCost + " CHF!");
-                purse.setBalance(purse.getBalance() - selectedProduct.getPrice()*multiplier);
+                purse.setBalance(purse.getBalance() - selectedProduct.getPrice() * multiplier);
                 selectedProduct.setNumInStock(selectedProduct.getNumInStock() - 1);
 
                 System.out.println("You bought " + selectedProduct.getName() + " for "
-                        + selectedProduct.getPrice()*multiplier + " CHF!");
+                        + selectedProduct.getPrice() * multiplier + " CHF!");
                 System.out.println("Your new balance is: " + purse.getBalance() + " CHF");
 
                 mainMenu();
@@ -271,11 +278,6 @@ public class Menu {
         }
         products.printProducts(1, true);
     }
-
-    public void secretMenuChangeProduct() {
-
-    }
-
 
     //Function from ChatGPT. Checks whether a string is a number or not
     public static boolean isNumeric(String str) {
