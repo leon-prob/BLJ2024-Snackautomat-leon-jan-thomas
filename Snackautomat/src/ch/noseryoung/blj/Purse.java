@@ -1,15 +1,14 @@
 package ch.noseryoung.blj;
 
 public class Purse {
-    private final int MAX_BALANCE = 100; // Maximum allowed balance in CHF.
-    private int balance = MAX_BALANCE;   // Start with 100 CHF.
+    private final int MAX_BALANCE = 100;
+    private int balance = MAX_BALANCE;
 
     public int getBalance() {
         return balance;
     }
 
     public void setBalance(int balance) {
-        // to not drop below 0 CHF
         if (balance < 0) {
             this.balance = 0;
         } else {

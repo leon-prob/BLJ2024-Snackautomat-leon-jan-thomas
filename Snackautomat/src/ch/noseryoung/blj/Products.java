@@ -24,7 +24,7 @@ public class Products {
 
     void initProducts() {
         File file = new File("stock.txt");
-        if (file.exists() && file.length() > 0) { // Check if file exists and has content
+        if (file.exists() && file.length() > 0) {
             try (Scanner fileScanner = new Scanner(file)) {
                 while (fileScanner.hasNextLine()) {
                     String line = fileScanner.nextLine();
@@ -44,8 +44,7 @@ public class Products {
                 System.err.println("Error reading products from file: " + e.getMessage());
             }
         } else {
-            // If the file doesn't exist or is empty, initialize with default data
-            productList.clear(); // Clear any existing data to avoid duplicates
+            productList.clear();
             productList.add(new Products("Coca Kola", "Beverage", 2, 0));
             productList.add(new Products("Fanta", "Beverage", 2, 0));
             productList.add(new Products("Sprite", "Beverage", 2, 0));
@@ -67,7 +66,7 @@ public class Products {
             productList.add(new Products("Product 19", "Not Available", 0, 0));
             productList.add(new Products("Product 20", "Not Available", 0, 0));
 
-            saveProducts(); // Save the initial data to the file
+            saveProducts();
             System.out.println("Default products initialized and saved to stock.txt.");
         }
     }
@@ -83,12 +82,11 @@ public class Products {
         if (category.equals("valid")) {
             for (int i = 0; i < productList.size(); i++) {
                 if (getProduct(i).getCategory().equals("Not Available")) {
-                    // Nothing is printed
                 } else {
                     printProducts(i, secretModeON);
                 }
             }
-        } else if (category.equals("all")) { //Printing all (including Non-Available)
+        } else if (category.equals("all")) {
             for (int i = 0; i < productList.size(); i++) {
                 printProducts(i, secretModeON);
             }
@@ -120,7 +118,6 @@ public class Products {
         }
     }
 
-    // Getters
     public String getName() {
         return name;
     }
@@ -166,7 +163,7 @@ public class Products {
             System.out.println("Products successfully saved to stock.txt.");
         } catch (IOException e) {
             System.err.println("Error saving products to file: " + e.getMessage());
-            e.printStackTrace(); // Print stack trace for debugging
+            e.printStackTrace();
         }
     }
 
@@ -184,6 +181,4 @@ public class Products {
             }
         }
     }
-
-    // Getters and setters remain unchanged...
 }

@@ -69,7 +69,6 @@ public class Menu {
                     initBuyProduct(); //Show buying Menu
                     break;
                 case "4":
-                    //Exit function
                     break;
                 case "sm":
                     sk.handleSecretKey("sm");
@@ -82,7 +81,7 @@ public class Menu {
         } while (!contin);
     }
 
-    public void showProductsMenu() { //printing menu for Product category
+    public void showProductsMenu() {
         boolean contin;
         do {
             String category = "0";
@@ -193,20 +192,16 @@ public class Menu {
                     continue;
                 }
 
-                // Calculate total cost
                 int totalCost = selectedProduct.getPrice() * multiplier;
 
-                // Check if the user can afford the total cost
                 if (purse.getBalance() < totalCost) {
                     System.out.println("You can't afford that many products! Try to buy fewer Products");
                     continue;
                 }
 
-                // Update balance and stock
                 purse.setBalance(purse.getBalance() - totalCost);
                 selectedProduct.setNumInStock(selectedProduct.getNumInStock() - multiplier);
 
-                // Save the updated products
                 products.saveProducts();
 
                 System.out.println("You bought " + multiplier + " " + selectedProduct.getName() + " for "
@@ -265,19 +260,12 @@ public class Menu {
         String secretMenuChooseProduct = menu.nextLine();
         if (isNumeric(secretMenuChooseProduct)) {
             if (Integer.parseInt(secretMenuChooseProduct) >= 1 && Integer.parseInt(secretMenuChooseProduct) <= 20) {
-                //Notiz für morgen: Als nächstes mache ich einen Dialog um Name, Kategorie, Preis und num in stock zu verändern.
 
             }
         }
         products.printProducts(1, true);
     }
 
-    public void secretMenuChangeProduct() {
-
-    }
-
-
-    //Function from ChatGPT. Checks whether a string is a number or not
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
