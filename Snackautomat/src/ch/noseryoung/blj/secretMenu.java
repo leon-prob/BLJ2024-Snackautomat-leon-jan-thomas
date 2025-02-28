@@ -108,6 +108,7 @@ public class secretMenu {
         System.out.println("Enter the category of the new product (Beverage, Snacks, others):");
         String newCategory = scanner.nextLine();
 
+        // Validate the category
         while (!newCategory.equals("Beverage") && !newCategory.equals("Snacks") && !newCategory.equals("others")) {
             System.out.println("Invalid category. Please enter Beverage, Snacks, or others:");
             newCategory = scanner.nextLine();
@@ -141,7 +142,7 @@ public class secretMenu {
             System.out.println("Enter the product number to change price:");
             if (scanner.hasNextInt()) {
                 int productNumber = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); // Consume the newline
 
                 System.out.println("Enter the new price:");
                 if (scanner.hasNextInt()) {
@@ -153,17 +154,17 @@ public class secretMenu {
                         product.setPrice(newPrice);
                         products.saveProducts();
                         System.out.println("Price changed successfully.");
-                        break;
+                        break; // Exit the loop if successful
                     } else {
                         System.out.println("Invalid product number.");
                     }
                 } else {
                     System.out.println("Invalid input for new price. Please enter an integer.");
-                    scanner.nextLine();
+                    scanner.nextLine(); // Clear invalid input
                 }
             } else {
                 System.out.println("Invalid input for product number. Please enter an integer.");
-                scanner.nextLine(); 
+                scanner.nextLine(); // Clear invalid input
             }
         }
     }
